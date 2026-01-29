@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Lima Yankee</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+        a {
+            color:white;
+            font-size: 20px;
+            transition: transform 0.2s ease-in-out;
+			display: inline-block;
+			font-family: "segoe script";
+        }
+        a:hover {
+			transform: scale(1.1);
+			color: rgb(30, 255, 0);
+		}
+        table {
+        border-collapse: collapse;
+        border: 2px solid rgb(200,200,200);
+        letter-spacing: 1px;
+        font-size: 0.8rem;
+        }
+        .heed {
+			position: sticky;
+			top: 0;
+			background: #202020;
+			color: white;
+		}
+        td, th {
+        border: 1px solid rgb(0, 0, 0);
+        padding: 10px 20px;
+        color: rgb(25, 68, 20);
+        }
+
+        th {
+        background-color: rgb(235,235,235);
+        }
+
+        td {
+        text-align: center;
+        }
+
+        tr:nth-child(even) td {
+        background-color: rgb(194, 194, 194);
+        }
+
+        tr:nth-child(odd) td {
+        background-color: rgb(194, 194, 194);
+        }
+
+        caption {
+        padding: 10px;
+        }
+        body {
+            color: white;
+            font-family: "century gothic";
+        }
+        table {
+            color: rgb(28, 58, 34);
+        }
+        .wrapper-img{    
+			position: relative;
+			max-width: 50px;
+		}
+		.wrapper-img .img-hide{    
+			opacity: 0; 
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;	
+		}
+		.wrapper-img:hover .img-hide{
+			opacity: 1;
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;
+		}
+		.totop {
+		  max-width: 200px;
+		  position: -webkit-sticky;
+		  position: sticky;
+		  bottom: 0;
+		  float: right;
+		  color: white;
+		}
+        .fraction, .top, .bottom {
+            padding: 0 5px;    
+        }
+
+        .fraction {
+            display: inline-block;
+            text-align: center;    
+        }
+
+        .bottom{
+            border-top: 1px solid #000;
+            display: block;
+        }
+        h1 {
+            color:aqua;
+        }
+        h3 {
+            color:rgb(44, 94, 94);
+        }
+	</style>
+	<script type="text/javascript">
+        $('.fraction').each(function(key, value) {
+            $this = $(this)
+            var split = $this.html().split("/")
+            if( split.length == 2 ){
+                $this.html('<span class="top">'+split[0]+'</span><span class="bottom">'+split[1]+'</span>')
+            }    
+        });
+	</script>
+  </head>
+  <body bgcolor=black>
+    <div style = "text-align: center;">
+        <div style = "margin-left:-150px; margin-top:40px;">Помощник по Химии.</div>
+        <h1 style="font-size: 400%;  margin-top: -10px; margin-bottom: -10px;">Chemistry</h1>
+        <div style = "margin-left:150px; margin-bottom: 50px;">Формулы, таблицы.</div>
+    </div>
+    <ul><h1>Основной список:</h1>
+        <li><a href="#1">Массы, массовые доли, плотности и т.д.</a></li>
+        <li><a href="#2">Общие формулы основных элементов.</a></li>
+        <li><a href="#3">Валентность и её следствия.</a></li>
+        <li><a href="#4">Химические реакции.</a></li>
+        <li><a href="#5">Степени оксиления.</a></li>
+    </ul>
+
+    <img src="images/mendel.png" width = "800px">
+    <a name = "def"></a>
+    <ul>Определения
+        <li>Химия - </li>
+        <li>Простое в-во - в-во, состоящее из одного типа эл-тов.</li>
+        <li>Сложное в-во - в-во, состоящее из несккольких типов эл-тов.</li>
+        <li>Гидроксогруппа - (OH)<sub>y</sub></li>
+        <li>Химическая реакция - превращение одного или нескольких исходных веществ (реагентов) в отличающиеся по химическому составу или строению новый вещества (продукты реакции).</li>
+        <li>Энергия активации - это минимальная энергия, которая необходима молекулам, чтобы вступить в химическо взаимодействие.</li>
+        <li>Эндотермические реакции - хим. реакции, сопровождающиеся поглощением тепла.</li>
+        <li>Экзотермические реакции - химю реакции, сопровождающиеся выделением тепла.</li>
+        <li>Тепловой эффект - количество теплоты, выделяемое или поглощаемое при реакции.</li>
+        <li></li>
+    </ul>
+    <ul>Условия возникноввения реакции:
+        <li>
+            
+        </li>
+    </ul>
+    <a name="1"></a>
+    <table>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>Понятие</td>
+            <td>Ед. измерения</td>
+            <td>Формула</td>
+        </tr>
+        <tr>
+            <td>1</td>
+            <td>A<sub>r</sub></td>
+            <td>относительная<br>атомная масса</td>
+            <td></td>
+            <td>Ar(Э) (табл. Менделеева)</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>M<sub>r</sub></td>
+            <td>относительная<br>молекулярная масса</td>
+            <td>а.е.д = 1/12 массы<br> молекулы углерода</td>
+            <td>Mr(A<sub>x</sub>B<sub>y</sub>) = x*Ar(A) + y*Ar(B)</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>v</td>
+            <td>количество вещества</td>
+            <td>моль</td>
+            <td>v = m/M = V/Vm = N/NA <br> m - масса, V - объём, N - число частиц</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>D</td>
+            <td>относительная<br>плотность газа</td>
+            <td></td>
+            <td>D<sub>B</sub>(A) = M(A) / M(B)</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>M</td>
+            <td>Молярная масса</td>
+            <td>г/моль</td>
+            <td>M = M<sub>r</sub>; M = A<sub>r</sub></td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>V<sub>m</sub></td>
+            <td>Молярный объём</td>
+            <td>л/моль</td>
+            <td>V<sub>m</sub> = 22.4л/моль</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>N<sub>A</sub></td>
+            <td>Число Авогадро</td>
+            <td>моль<sup>-1</sup></td>
+            <td>N<sub>A</sub> = 6.02*10<sup>23</sup>моль<sup>-1</sup></td>
+        </tr>
+        <tr>
+            <td>8</td>
+            <td>ω</td>
+            <td>Массовая доля<br>Элемента</td>
+            <td>%</td>
+            <td style="text-align: center;">ω(A) = <table table border="0" style="border-collapse: collapse; display: inline-table; vertical-align: middle;"><tr><td>x*Ar(A)</td></tr>
+                <tr><td>Mr(A<sub>x</sub>B<sub>y</sub>)</td></tr></table>*100%</td>
+        </tr>
+        <tr>
+            <td>9</td>
+            <td>ω</td>
+            <td>Массовая доля<br>растворённого<br>вещества</td>
+            <td>%</td>
+            <td style="text-align: center;">ω(A) = <table table border="0" style="display: inline-table; vertical-align: middle;"><tr><td>m(раств. в-ва)</td></tr>
+                <tr><td>m(раствора)</td></tr></table>*100%</td>
+        </tr>
+        <tr>
+            <td>10</td>
+            <td>ω</td>
+            <td>Массовая доля<br>примеси</td>
+            <td>%</td>
+            <td style="text-align: center;">ω(A) = <table table border="0" style="display: inline-table; vertical-align: middle;"><tr><td>m(чистого в-ва)</td></tr>
+                <tr><td>m(смеси)</td></tr></table>*100%</td>
+        </tr>
+        <tr>
+            <td>11</td>
+            <td>n</td>
+            <td>Выход продукта от<br>теоретического</td>
+            <td>%</td>
+            <td>n = <table table border="0" style="display: inline-table; vertical-align: middle;"><tr><td>m(практ.)</td></tr>
+                <tr><td>m(теорет.)</td></tr></table> = <table table border="0" style="display: inline-table; vertical-align: middle;"><tr><td>V(практ.)</td></tr>
+                    <tr><td>V(теорет.)</td></tr></table></td>
+        </tr>
+    </table>
+    <br>
+    <a name="2"></a>
+    <span>Общие формулы</span>
+    <table>
+        <tr>
+            <td>Вещество</td>
+            <td>Основание</td>
+            <td>Соли</td>
+            <td>Кислоты</td>
+            <td>Оксиды</td>
+        </tr>
+        <tr>
+            <td>Общая формула</td>
+            <td>Ме<sub>x</sub>(OH)<sub>y</sub></td>
+            <td>Ме<sub>x</sub>(КО)<sub>y</sub></td>
+            <td>H<sub>x</sub>(КО)</td>
+            <td>Э<sub>x</sub>O<sub>y</sub></td>
+        </tr>
+    </table>
+    <span>Ме - метал, КО - кислотная основа.</span><br>
+    <br>
+    <a name="3"></a>
+    <p style = "font-size: 20px;">Валентность оксида находится по формуле (исходя из Э<sub>x</sub>O<sub>y</sub>) - "<u>2 * y / x</u>"</p>
+    <table>
+        <tr>
+            <td colspan=5>Оксиды Э<sub>x</sub>O<sub>y</sub></td>
+        </tr>
+        <tr>
+            <td colspan=3>Э - металл</td>
+            <td colspan=2>Э - не метал</td>
+        </tr>
+        <tr>
+            <td>Оснóвные</td>
+            <td>Амфотерные</td>
+            <td colspan=2>Кислотные</td>
+            <td>Не солеобразующие</td>
+        </tr>
+        <tr>
+            <td>Me: 1 - 2<br>(валентность)<br> - PbO, ZnO, BeO, SnO</td>
+            <td>Me: 3-4<br>(валентность)<br> + PbO, ZnO, BeO, SnO</td>
+            <td colspan=2>Me: 5+,<br>+НеМе</td>
+            <td>SO, NO, N<sub>2</sub>O,<br> CO, SiO</td>
+        </tr>
+        <tr>
+            <td>CaO, Ca(OH)<sub>2</sub></td>
+            <td>Al<sub>2</sub>O<sub>3</sub>, MnO<sub>2</sub></td>
+            <td>SO<sub>3</sub>, NO<sub>2</sub></td>
+            <td>SiO<sub>2</sub>, P<sub>2</sub>O<sub>5</sub></td>
+            <td></td>
+        </tr>
+    </table>
+
+    <a name="4"></a>
+    <ul style = "color:white"><h1>Химические реакции:</h1>
+        <li>
+            <ol><h3>Кислот</h3>
+                <li>+ основание = соль + вода (Обмен)</li>
+                <li>+ осн. оксид = соль + вода (Обмен)</li>
+                <li>+ амф. оксид = соль + вода (Обмен)</li>
+                <li>+ соль = новая кислота + новая соль (Обмен)</li>
+                <li>+ металл = соль + H<sub>2</sub> (Замещение)</li>
+            </ol>
+        </li><li>
+            <ol><h3>Оснований</h3>
+                <li>Осн. + кослота = соль + вода (Обмен)</li>
+                <li>Щёлочь + кисл. оксид = соль + вода (Обмен)</li>
+                <li>Щёлочь + амф. оксид = соль + вода (Обмен)</li>
+                <li>Нерастворимое осн. = оксид металла + вода (Разложение)</li>
+                <li>Щёлочь + металл = соль + H<sub>2</sub> (Замещение)</li>
+                <li>Соль + щёлочь = новая соль + новое основание (Обмен)</li>
+            </ol>
+        </li><li>
+            <ol><h3>Солей</h3>
+                <li>+ кислота = новая кислота + новая соль (Обмен)</li>
+                <li>+ щёлочь - новая соль + новое основание (Обмен)</li>
+                <li>Соль1 + соль2 = соль3 + соль4 (Обмен)</li>
+                <li>Соль + металл = новая соль + новый метал (Замещение)</li>
+            </ol>
+        </li><li>
+            <ol><h3>Кислотных оксидов</h3>
+                <li>+ вода = кислота (Соединение)</li>
+                <li>+ осн. оксид = ссоль(Соединение)</li>
+                <li>+ фмф. оксид = соль (Соединение)</li>
+                <li>+ щёлочь = соль + вода (Обмен)</li>
+            </ol>
+        </li><li>
+            <ol><h3>Основных оксидов</h3>
+                <li>+ вода = щёлочь (Соединение)</li>
+                <li>+ кисл. оксид = соль (Соединение)</li>
+                <li>+ амф. оксид = соль (Соединение)</li>
+                <li>+ кислота = соль + вода (Обмен)</li>
+            </ol>
+        </li><li>
+            <ol><h3>Амфотерных оксидов</h3>
+                <li>+ осн. оксид = соль (Соединение)</li>
+                <li>+ кисл. оксид = соль (Соединение)</li>
+                <li>+ кислота = соль + вода (Обмен)</li>
+                <li>+ щёлочь = соль + вода (Обмен)</li>
+            </ol>
+        </li>
+    </ul>
+
+    <a name="5"></a>
+    <ol><h1>Правила определения Степеней окисления.</h1>
+        <li>С.о. эл-та в простом в-ве равна 0.</li>
+        <li>С.о. фтора во всех соединениях равна -1 (кроме F<sub>2</sub>).</li>
+        <li>С.о. кислорода во всех соединениях равна -2.</li>
+            <span style="color:red">Исключения: O<sub>2</sub>(0), O<sub>3</sub>(0), OF<sub>2</sub>(+2, -1), Na<sub>2</sub>O<sub>2</sub>(+1, -1), H<sub>2</sub>O<sub>2</sub>(+1, -1)</span>.
+        <li>С.о. водорода равнаа +1, если в соединении есть хотя бы один неметалл, иначе -1.</li>
+        <li>С.о. металла неотрицательна.<br>С.о. главных подгрупп всегда положительна, всегда равна номеру группы.<br>С.о. побочных подгрупп принимает различные знаачения</li>
+        <li>Максимальная положительная с.о. равна номеру группы <span style="color:red">(Исключения: Cu +2, Au +3)</span>.<br>Минимальная с.о. равна номеру группы - 8.</li>
+        <li>Сумма с.о. Атомов в молекуле равна 0.</li>
+    </ol>
+
+    <div class="totop wrapper-img"><a href = "#top">
+		<img style = "max-width: 50px;" src="images/totop1.png" alt="" />
+		<img style = "max-width: 50px;" class="img-hide" src="images/totop2.png" alt="" />
+	</a></div>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Chemistry Helper</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div style = "text-align: center;">
+        <div style = "margin-left:-150px; margin-top:40px;">Помощник по Химии.</div>
+        <h1 class="title">Chemistry</h1>
+        <div style = "margin-left:150px; margin-bottom: 50px;">Формулы, таблицы.</div>
+    </div>
+
+    <nav class="topics" style="margin-left: 2%; margin-right: 2%;">
+        <h2>Основной список:</h2>
+        <ul>
+            <li><a href="#masses">Массы, массовые доли, плотности</a></li>
+            <li><a href="#general">Общие формулы элементов</a></li>
+            <li><a href="#oxidation">Степени окисления</a></li>
+            <li><a href="#valency">Валентность и её следствия</a></li>
+            <li><a href="#reactions">Химические реакции</a></li>
+        </ul>
+    </nav>
+
+    <div id="table-container" style="width: 100%; overflow-x: auto;"></div>
+
+    <section class="section">
+        <h2>Определения</h2>
+        <ul>
+            <li>Химия — Одна из основных наук естествознания, изучающая внутренний состав, внутреннее строение материи, закономерности качественных изменений, разложения и превращения веществ, а также закономерности образования новых веществ в результате качественных изменений</li>
+            <p>Химия отличается от физики изменением состава вещества.</p>
+            <li>Простое вещество — состоит из одного типа элементов.</li>
+            <li>Сложное вещество — состоит из нескольких типов элементов.</li>
+            <li>Гидроксогруппа — (OH)<sub>y</sub></li>
+            <li>Химическая реакция — превращение реагентов в новые вещества.</li>
+            <li>Энергия активации — минимальная энергия для реакции.</li>
+            <li>Эндотермические реакции — сопровождаются поглощением тепла.</li>
+            <li>Экзотермические реакции — сопровождаются выделением тепла.</li>
+            <li>Тепловой эффект — количество теплоты, выделяемое или поглощаемое.</li>
+        </ul>
+    </section>
+
+    <section class="section" id="masses">
+        <h2>Массы, массовые доли, плотности</h2>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>№</th>
+                    <th>Обозначение</th>
+                    <th>Понятие</th>
+                    <th>Ед. изм.</th>
+                    <th>Формула</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>A<sub>r</sub></td>
+                    <td>Относительная атомная масса</td>
+                    <td>—</td>
+                    <td>Ar(Э)</td>
+                </tr>
+
+                <tr>
+                    <td>2</td>
+                    <td>M<sub>r</sub></td>
+                    <td>Относительная молекулярная масса</td>
+                    <td>а.е.м.</td>
+                    <td>Mr(A<sub>x</sub>B<sub>y</sub>) = x·Ar(A)+y·Ar(B)</td>
+                </tr>
+
+                <tr>
+                    <td>3</td>
+                    <td>v</td>
+                    <td>Количество вещества</td>
+                    <td>моль</td>
+                    <td>v = m/M = V/Vm</td>
+                </tr>
+
+                <tr>
+                    <td>4</td>
+                    <td>D</td>
+                    <td>Относительная плотность газа</td>
+                    <td>—</td>
+                    <td>D = M(A)/M(B)</td>
+                </tr>
+
+                <tr>
+                    <td>5</td>
+                    <td>M</td>
+                    <td>Молярная масса</td>
+                    <td>г/моль</td>
+                    <td>M = M<sub>r</sub></td>
+                </tr>
+
+                <tr>
+                    <td>6</td>
+                    <td>V<sub>m</sub></td>
+                    <td>Молярный объём</td>
+                    <td>л/моль</td>
+                    <td>22.4</td>
+                </tr>
+
+                <tr>
+                    <td>7</td>
+                    <td>N<sub>A</sub></td>
+                    <td>Число Авогадро</td>
+                    <td>моль⁻¹</td>
+                    <td>6.02·10²³</td>
+                </tr>
+
+                <tr>
+                    <td>8</td>
+                    <td>ω</td>
+                    <td>Массовая доля элемента</td>
+                    <td>%</td>
+                    <td class="frac">x·Ar(A) / Mr(A<sub>x</sub>B<sub>y</sub>)</td>
+                </tr>
+
+            </table>
+        </div>
+    </section>
+
+    <section class="section" id="general">
+        <h2>Общие формулы</h2>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th>Вещество</th>
+                    <th>Основания</th>
+                    <th>Соли</th>
+                    <th>Кислоты</th>
+                    <th>Оксиды</th>
+                </tr>
+
+                <tr>
+                    <td>Формулы</td>
+                    <td>Me<sub>x</sub>(OH)<sub>y</sub></td>
+                    <td>Me<sub>x</sub>(KO)<sub>y</sub></td>
+                    <td>H<sub>x</sub>(KO)</td>
+                    <td>Э<sub>x</sub>O<sub>y</sub></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="section" id="oxidation">
+        <h2>Степени окисления</h2>
+
+        <ol>
+            <li>Простые вещества: 0</li>
+            <li>Фтор: всегда −1</li>
+            <li>Кислород: обычно −2</li>
+            <li>Водород: +1 с неметаллами, −1 с металлами</li>
+            <li>Сумма степеней окисления в молекуле всегда 0</li>
+        </ol>
+    </section>
+
+    <section class="section" id="valency">
+        <h2>Валентность</h2>
+        <p>Валентность оксида Э<sub>x</sub>O<sub>y</sub> вычисляется как: <strong>2· y / x</strong></p>
+
+        <div class="table-container">
+            <table>
+                <tr>
+                    <th colspan="5">Оксиды</th>
+                </tr>
+                <tr>
+                    <th colspan="3">Металлы</th>
+                    <th colspan="2">Неметаллы</th>
+                </tr>
+                <tr>
+                    <td>Основные<br>Степень Окисления=+1, +2</td>
+                    <td>Амфотерные<br>Степень Окисления=+3, +4</td>
+                    <td>Кислотные<br>С.О > +4</td>
+                    <td>Кислотные<br>С.О. > +3</td>
+                    <td>Не солеобразующие</td>
+                </tr>
+                <tr>
+                    <td>CaO, Ca(OH)₂</td>
+                    <td>Al₂O₃, MnO₂</td>
+                    <td colspan="2">SO₃, NO₂, SiO₂, P₂O₅</td>
+                    <td>CO, NO, N₂O, SO, SiO</td>
+                </tr>
+                <tr>
+                    <td>Исключения: BeO, ZnO, SnO, PbO не основные</td>
+                    <td>Исключения: BeO, ZnO, SnO, PbO амфотерные</td>
+                    <td colspan="2">Исключение: Cl2O - кислотный</td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <section class="section" id="reactions">
+        <h2>Химические реакции</h2>
+
+        <div class="reaction-block">
+            <h3>Кислоты</h3>
+            <ul>
+                <li>Кислота + основание → соль + H₂O</li>
+                <li>Кислота + осн. оксид → соль + H₂O</li>
+                <li>Кислота + металл → соль + H₂</li>
+            </ul>
+        </div>
+
+        <div class="reaction-block">
+            <h3>Основания</h3>
+            <ul>
+                <li>Основание + кислота → соль + H₂O</li>
+                <li>Щёлочь + соль → новая соль + новое основание</li>
+            </ul>
+        </div>
+
+        <div class="reaction-block">
+            <h3>Соли</h3>
+            <ul>
+                <li>Соль + кислота → новая кислота + новая соль</li>
+                <li>Соль + металл → новая соль + металл</li>
+            </ul>
+        </div>
+    </section>
+    <script defer src="script.js"></script>
+
+</body>
+</html>

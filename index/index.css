@@ -1,0 +1,95 @@
+a.link-wrapper {
+  display: inline-block;
+}
+.link-wrapper {
+    width: 250px;
+}
+.bottom-hover {
+    width: 35px;
+    padding: 2px;
+    transition: width 0.4s ease;
+    background-color: black;
+    border-radius: 50%;
+}
+.bottom-hover:hover {
+    width: 45px;
+}
+h1 {
+  display: inline;
+}
+
+.buttons {
+    margin-top: 150px;
+    margin-left: 25px;
+}
+.header {
+    margin-left: 20px;
+    width: 200px;
+    color:white;
+    font-size: 70px;
+    transition: margin-left 2s ease, font-size 0.5s ease;
+}
+.header:hover{
+    margin-left: 30px;
+    font-size: 75px;
+}
+.quote {
+    margin-left: -20px;
+    width: 600px;
+    color:white;
+    font-size: 15px;
+    transition: margin-left 0.5s ease;
+}
+.quote:hover{
+    margin-left: 40px;
+}
+
+.butline {
+    width: 250px;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+}
+.button {
+    margin-left: -10px;
+    background: linear-gradient(to right, rgba(234, 0, 255, 0.589), rgba(234, 0, 255, 0.205));
+    width: 200px;
+    height: 30px;
+    gap: 8px;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: width 1s ease, height 0.5s ease;
+}
+.button:hover {
+    width: 250px;
+}
+.line {
+    background-color: rgb(196, 59, 178);
+    width: 10px;
+    background-clip: padding-box;
+    height: 30px;
+}
+
+
+a {
+    text-decoration: none;
+}
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+body {
+    background-image: url('img/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: 120% 120%;
+    background-position: center center;
+    transition: background-position 0.1s ease-out;
+}

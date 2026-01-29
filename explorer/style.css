@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Segoe MDL2 Assets";
+  src: url("fonts/segoe-mdl2-assets.ttf") format("truetype");
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    position: relative;
+    background-image: url('img/wallpaper.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.blur-layer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(27, 27, 27, 0.863);
+    z-index: -1;
+}

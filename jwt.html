@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>JWT init</title>
+</head>
+    <body>
+        <script>
+        (function () {
+            const params = new URLSearchParams(window.location.search);
+            const token = params.get('token');
+
+            if (token && token.split('.').length === 3) {
+                localStorage.setItem('jwt', token);
+                console.log('JWT saved');
+            } else {
+                console.warn('Invalid or missing JWT');
+            }
+
+            window.location.replace(
+                'https://tbs-server-s7vy.onrender.com/dashboard/'
+            );
+        })();
+        </script>
+    </body>
+</html>

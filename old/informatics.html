@@ -1,0 +1,707 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Lima Yankee</title>
+	<meta charset="utf-8">
+	<script src="info.js"></script>
+	<style type="text/css">
+		.video-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1; /* Убедитесь, что видео находится позади контента */
+        }
+
+        video {
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+		input {
+			background-color: white;
+		}
+		.heed {
+			position: sticky;
+			top: 0;
+			background: #202020;
+			color: white;
+			z-index: 5;
+		}
+		.wrapper-img{    
+			position: relative;
+			max-width: 50px;
+		}
+		.wrapper-img .img-hide{    
+			opacity: 0; 
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;	
+		}
+		.wrapper-img:hover .img-hide{
+			opacity: 1;
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;
+		}
+		.totop {
+		  max-width: 200px;
+		  position: -webkit-sticky;
+		  position: sticky;
+		  bottom: 0;
+		  float: right;
+		  color: white;
+		}
+		a {
+			color: white;
+			transition: transform 0.2s ease-in-out;
+			display: inline-block;
+			font-family: "segoe script";
+			margin-bottom: -10px;
+			transform: scale(1.05);
+		}
+		a:hover {
+			transform: scale(1.1);
+			color: rgb(30, 255, 0);
+		}
+		.name {
+			color: #0D98BA;
+		}
+		.code {
+			color: #03C03C;
+			background: #000;
+			margin-top: 0px;
+			padding-right: 20px; 
+			padding-left: 20px; 
+			white-space: pre;
+			font-family: "century gothic";
+			border: white 1px solid;
+		}
+		.i {
+			color: #287233;
+		}
+		.out {
+			background: #000;
+			color: #03C03C;
+		}
+		.algo {
+			border: solid 3px white; 
+		}
+		ul {
+			color: white;
+		}
+		body {
+			color: white;
+			font-family: "century gothic";
+		}
+		button {
+			transition: transform 0.6s ease;
+		}
+		button:hover {
+			transform: scale(1.3);
+		}
+	</style>
+	
+  </head>
+  <body bgcolor = #000>
+	<a name ="top"></a>
+	<div class="video-background">
+        <video autoplay muted loop>
+            <source src="images/infoback.mp4" type="video/mp4">
+            Ваш браузер не поддерживает видео.
+        </video>
+    </div>
+	<div class = "heed">
+		Помощник - Информатика|
+		<a href = "helplist.html">Главная страница</a>| Обратная связь:
+		<a href = "https://t.me/+tzRUzNgaf5liODg6" target="_blank"><img src = "images/telegram.png" style = "max-width: 40px; vertical-align: middle">
+		Telegram</a>
+	</div>
+    <div>
+		<p class = "i">7 - 8 - 9 классы Python</p>
+
+			<h3 style = "color: rgb(0, 163, 204); margin-top: -11px; margin-bottom: -11px;" class = "i">Алгоритмы</h3>
+			<br>
+			<span><a style="color: #91ff00;" href = "#l0">Х в степени Y (Y:int)</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l1">Является ли X степенью Y?</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l2">Проверка палиндрома.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l3">Самая часто встречаемая цифра.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l4">Найти количество делителей числа.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l5">Найти простые делители числа.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l6">Есть ли элемент в списке?</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l7">Сумма элементов.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l8">Сумма делителей числа.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l9">Простое ли число.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l10">Фибоначчи.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l11">Двойной максимум.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l12">НОД и НОК.</a></span><br>
+			<span><a style="color: #91ff00;" href = "#l20">Разбиение на слова (генератор).</a></span><br>
+			<br><h3 style = "color: rgb(0, 163, 204); margin-top: -11px; margin-bottom: -11px;">Сортировки:</h3>
+			<ul>
+				<li><span><a style="color: #00ff15;" href = "#l22">Сортировка выбором.</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l13">Алгоритм Хоара (быстрая)</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l14">Сортировка подсчётом.</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l15">Сортировка слиянием.</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l16">Сортировка вставками.</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l17">Пузырьковая сортировка.</a></span></li>
+				<li><span><a style="color: #00ff15;" href = "#l18">Q_sort случайности.</a></span></li>
+			</ul>
+			<h3 style = "color: rgb(0, 163, 204); margin-top: -11px; margin-bottom: -11px;">Файлы:</h3>
+			<ul>
+				<li><a style="color: #eeff00;" href = "#l19">Файл со словами без повторов.</a></li>
+				<li><a style="color: #eeff00;" href = "#l21">Чтение матриц из файла (генератор).</a></li>
+				<li><a style="color: #eeff00;" href = "#l23">Чтение матриц из файла (генератор) - разные размеры.</a></li>
+				<li><a style="color: #eeff00;" href = "#l24">Чтение матриц из файла (генератор) - с разделителем.</a></li>
+			</ul>
+			
+			<div class = "algo">
+				Функции и методы.<br>
+				Строки
+				<ul>
+					<li style = "color: white;">ord(chr) - Получение кода символа по таблицы.</li>
+					<li style = "color: white;">chr(num) - Получение символа по его коду таблицы.</li>
+				</ul>
+				Файлы
+				<ul>
+					<li style = "color: white;">f = open(path, mode="rt", encoding) - открытие файла по относительному/абсолютному пути path. Возвращает файловвый объъект.</li>
+					<ol>Режимы (mode):<br>
+						Указаны первые буквы для каждого режима. Вторая буква по умолчанию t(text - чтение текстового файла), также есть b(bytes - чтение бинарного файла)
+						<li>r - Чтение файла. Курсор находится перед первым символом в файле.</li>
+						<li>w - Создание нового файла для записи. ВАЖНО: если перед открытием файла уже был файл по данному пути, старый будет стёрт.</li>
+						<li>x - То же, что и w, но вызывает ошибку если файл по данному пути уже существует. Нужно для заадач "дебагга" - как предосторожность до того как закончите программу, случайно не удалить имеющиеся файлы.</li>
+						<li>a - Открытие файла для записи. Если файл по данному пути уже существует, запись будет происходить в конец этого файла, если не существует - в начало нового файла. P.s. Подойдёт в случает, если вам необходимо чтобы файл сущеествовал несмотря на его содержимое.</li>
+						Остальные режимы (r+, w+, a+) использовать не принято, они сильно усложняют читаемость кода и не привносят взамен весомой пользы.
+						Для управления курсором можно использовать метод файлового объекта .seek(n) - он перемещает курсор перед указанным символом (нумерация начинается с 0.)
+					</ol>
+					<li style = "color: white;">.close() - метод файлового объекта. Необходимо вызвать как только закончится алгоритм обработки содержимого</li>
+					<br>
+					<ol>Методы файлового объекта для чтения.
+						<li style = "color: white;">.read(n) - Читает n символов и сдвигает курсор на n символов. Если не указать n, вернёт весь файл.</li>
+						<li style = "color: white;">.readline() - Читает файл до переноса строки / конца файла. Симввол переноса строки также возвращается.</li>
+						<li style = "color: white;">.readlines(n) - Выполняет .readline() n раз, возвращает список непустых результатов. Если не указать n, выведет весь файл разделённый на строки (Символ переноса строки входит в элементы списка)</li>
+					</ol>
+					<ol>Методы файлового объекта для записи.
+						<li style = "color: white;">.write(str) - записывает набор данных символов без каких-либо дополнений (без переноса строки)</li>
+						<li style = "color: white;">.writelines(list) - записывает сумму строк из переданного списка в файл.</li>
+					</ol>
+				</ul>
+				<a name = "l0"></a>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l1"></a>
+			<h4 class = "name"><button onclick="Copy('a1')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Возведение числа в степень.</h4>
+			<div class = "code" id="a1">
+def degree(x, y):
+	p = 1
+	for i in range(abs(y)):
+		p *= x
+	if(0 > y):
+		p = 1 / p
+	return p
+			</div>
+			<form id="form1"><input type="text" name="i1-0" placeholder="Основание степени"><input type="text" name="i1-1" placeholder="Показатель степени"></form>
+			<button onclick="A1()" title="Copy">Выполнить</button><div>output: </div><div class = "o1 out"></div>
+			</div>
+
+
+
+			<div class = "algo"><a name = "l2"></a>
+			<h4 class = "name"><button onclick="Copy('a2')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Является ли число степенью другого числа?</h4>
+			<div class = "code" id="a2">
+def is_degree(x, k):
+	p = 1
+	while(x > p):
+		p *= k
+	return(p == x)
+			</div>
+			<form id="form2"><input type="text" name="i2-0" placeholder="Число">
+			<input type="text" name="i2-1" placeholder="Основание степени"></form>
+
+			<button onclick="A2()" title="Copy">Выполнить</button><div>output: </div><div class = "o2 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l3"></a>
+			<h4 class = "name"><button onclick="Copy('a3')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Проверка палиндрома.</h4>
+			<div class = "code" id="a3">
+def is_poly(x):
+	m = x
+	new = 0
+	while(x > 0):
+		new = new * 10 + x % 10
+		x //= 10
+	return m == new
+			</div>
+			<form id="form3"><input type="text" name="i3-0" placeholder="Число"></form><br>
+			<button onclick="A3()" title="Copy">Выполнить</button><div>output: </div><div class = "o3 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l4"></a>
+			<h4 class = "name"><button onclick="Copy('a4')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Самая часто встречаемая цифра.</h4>
+			<div class = "code" id="a4">
+def cou(x):
+	cnt_list = [0] * 10
+	while(x > 0):
+		cnt_list[x % 10] += 1
+		x //= 10
+	mx = 0
+	mi = 0
+	for i in range(10):
+		if(cnt_list[i] > mx):
+			mx = cnt_list[i]
+			mi = i
+	return mi
+			</div>
+			<form id="form4"><input type="text" name="i4-0" placeholder="Число"></form><br>
+			<button onclick="A4()" title="Copy">Выполнить</button><div>output: </div><div class = "o4 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l5"></a>
+			<h5 class = "name"><button onclick="Copy('a5')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Найти количество делителей числа.</h5>
+			<div class = "code" id="a5">
+def del(x):
+	c = 1
+	cou = 0
+	while(x > c * c):
+		if(x % c == 0):
+			cou += 2
+		c += 1
+	if(x % c == 0):
+		cou += 1
+	return cou
+			</div>
+			<form id="form5"><input type="text" name="i5-0" placeholder="Число"></form><br>
+			<button onclick="A5()" title="Copy">Выполнить</button><div>output: </div><div class = "o5 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l6"></a>
+			<h6 class = "name"><button onclick="Copy('a6')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Найти простые делители числа.</h6>
+			<div class = "code" id="a6">
+def prim(n):
+	i = 2
+	primfac = []
+	while(n >= i * i):
+		while n % i == 0:
+			primfac.append(i)
+			n //= i
+		i += 1
+	if(n > 1):
+		primfac.append(n)
+	return primfac
+			</div>
+			<form id="form6"><input type="text" name="i6-0" placeholder="Число"></form><br>
+			<button onclick="A6()" title="Copy">Выполнить</button><div>output: </div><div class = "o6 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l7"></a>
+			<h7 class = "name"><button onclick="Copy('a7')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Нахождение элемента в списке.</h7>
+			<div class = "code" id="a7">
+def found(x, a):
+	for i in a:
+		if(x == i):
+			return True
+	return False
+			</div>
+			<form id="form7"><input type="text" name="i7-0" placeholder="Элемент"><input type="text" name="i7-1" placeholder="Список (писать через пробел)"></form><br>
+			<button onclick="A7()" title="Copy">Выполнить</button><div>output: </div><div class = "o7 out"></div>
+			</div>
+			
+			
+			
+			<div class = "algo"><a name = "l8"></a>
+      <h8 class = "name"><button onclick="Copy('a8')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Сумма элементов.</h8>
+      <div class = "code" id="a8">
+def sum(x):
+    s = 0
+	for i in x:
+		s += i
+	return s
+      </div>
+      <form id="form8"><input type="text" name="i8-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A8()" title="Copy">Выполнить</button><div>output: </div><div class = "o8 out"></div>
+</div>
+		
+		
+		
+		<div class="algo"><a name="l9"></a>
+      <h9 class="name"><button onclick="Copy('a9')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Сумма делителей числа.</h9>
+      <div class="code" id="a9">
+def f(n):
+    s = 0
+	i = 1
+    while n >= i * i:
+        if n % i == 0 and i != n // i:
+            s += i 
+            s += n // i
+        elif n % i == 0 and i == n // i:
+            s += i
+		i += 1
+    return s
+      </div>
+      <form id="form9"><input type="text" name="i9-0" placeholder="Число"></form><br>
+      <button onclick="A9()" title="Copy">Выполнить</button><div>output: </div><div class="o9 out"></div>
+</div>
+		
+		
+		
+		<div class="algo"><a name="l10"></a>
+      <h10 class="name"><button onclick="Copy('a10')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Простое ли число.</h10>
+      <div class="code" id="a10">
+def prime(x):
+    d = 2
+    while x >= d * d:
+        if x % d == 0:
+            return False
+        d += 1
+    return x > 1
+      </div>
+      <form id="form10"><input type="text" name="i10-0" placeholder="Число"></form><br>
+      <button onclick="A10()" title="Copy">Выполнить</button><div>output: </div><div class="o10 out"></div>
+</div>
+		
+		
+		
+		<div class="algo"><a name="l11"></a>
+      <h7 class="name"><button onclick="Copy('a11')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Фибоначчи (n-ое число)</h7>
+      <div class="code" id="a11">
+def fib(n, a, b):
+    if 2 > n:
+        return n 
+    else:
+        return a + fib(n - 1, b, a + b)
+
+n = int(input())
+print(fib(n, 0, 1))
+      </div>
+      <form id="form11"><input type="text" name="i11-0" placeholder="Число"></form><br>
+      <button onclick="A11()" title="Copy">Выполнить</button><div>output: </div><div class="o11 out"></div>
+</div>
+		
+		
+		
+<div class="algo"><a name="l12"></a>
+	<h7 class="name"><button onclick="Copy('a12')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Двойной максимум</h7>
+	<div class="code" id="a12">
+mx1 = 0 
+mx2 = 0 
+for x in list(map(int, input().split())):
+  if x > mx1: 
+	  mx2 = mx1
+	  mx1 = x 
+  elif x > mx2:
+	  mx2 = x
+print(mx1, mx2)
+	</div>
+	<form id="form12"><input type="text" name="i12-1" placeholder="Элементы (писать через пробел)"></form><br>
+	<button onclick="A12()" title="Copy">Выполнить</button><div>output: </div><div class="o12 out"></div>
+</div>
+
+
+
+<div class="algo"><a name="l20"></a>
+	<h7 class="name"><button onclick="Copy('a20')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  НОД, НОК</h7>
+	<div class="code" id="a20">
+def nod(a, b):
+	while(a != 0 and b != 0):
+		if(a > b):
+			a = a % b
+		else:
+			b = b % a
+	return a + b
+
+def nok(a, b):
+	return a * b / nod(a, b)
+
+a, b = int(input()), int(input())
+print(nod(a, b), nok(a, b))
+	</div>
+	<form id="form20"><input type="text" name="i20-1" placeholder="Число 1"> <input type="text" name="i20-2" placeholder="Число 2"></form><br>
+	<button onclick="A20()" title="Copy">Выполнить</button><div>output: </div><div class="o20 out"></div>
+</div>
+
+
+
+<div class="algo"><a name="l22"></a>
+	<h7 class="name"><button onclick="Copy('a22')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>Разбиение на слова.</h7>
+	<div class="code" id="a22">
+def split(s):
+	sep = " ,.;:!?\n"
+	w = ""
+	for c in s:
+		if(c not in sep):
+			w += c
+		elif(w != ""):
+			yield w
+			w = ""
+	</div>
+	<form id="form22"><input type="text" name="i22-1" placeholder="Строка"></form><br>
+	<button onclick="A22()" title="Copy">Выполнить</button><div>output: </div><div class="o22 out"></div>
+</div>
+		
+		
+		
+		<div class="algo"><a name="l13"></a>
+      <h7 class="name"><button onclick="Copy('a13')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Сортировка выбором.</h7>
+      <div class="code" id="a13">
+def selection_sort(a):
+    for i in range(len(a) - 1):
+        mini = i
+        for j in range(i + 1, len(a)):
+            if a[mini] > a[j]:
+                mini = j
+            a[i], a[mini] = a[mini], a[i]
+      </div>
+      <form id="form13"><input type="text" name="i13-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A13()" title="Copy">Выполнить</button><div>output: </div><div class="o13 out"></div>
+</div>
+		
+		
+		
+		<div class="algo"><a name="l14"></a>
+      <h14 class="name"><button onclick="Copy('a14')" title="Copy"><img src="images/copy.png" height="10" width="10"></button>  Быстрая сортировка (Алгоритм Хоара).</h14>
+      <div class="code" id="a14">
+def quick_sort(x):
+    if 2 > len(x):
+        return x 
+    else:
+        pivot = x[0] 
+        less = [i for i in x[1:] if pivot >= i]
+        greater = [i for i in x[1:] if i > pivot] 
+        return quick_sort(less)+ [pivot] + quick_sort(greater)
+      </div>
+      <form id="form14"><input type="text" name="i14-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A14()" title="Copy">Выполнить</button><div>output: </div><div class="o14 out"></div>
+</div>
+		
+		
+		
+		<div class = "algo"><a name = "l15"></a>
+      <h15 class = "name"><button onclick="Copy('a15')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Сортировка подсчетом.</h15>
+      <div class = "code" id="a15">
+a = list(map(int, input().split()))
+cnt=[0] * (max(a) + 1)
+print(len(cnt))
+for el in a:
+    cnt[el] += 1
+a = [] 
+for d in range(len(cnt)):
+    a += [d] * cnt[d]
+      </div>
+      <form id="form15"><input type="text" name="i15-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A15()" title="Copy">Выполнить</button><div>output: </div><div class = "o15 out"></div>
+      </div>
+		
+		
+		
+		<div class = "algo"><a name = "l16"></a>
+      <h16 class = "name"><button onclick="Copy('a16')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Сортировка слиянием.</h16>
+      <div class = "code" id="a16">
+def merge(a, b):
+    res = []
+    i = 0
+    j = 0
+    while len(a) > i and len(b) > j:
+        if b[j] >= a[i]: 
+            res.append(a[i])
+            i += 1
+        else:
+            res.append(b[j])
+            j += 1
+    res.extend(a[i:])
+    res.extend(b[j:])
+    return res
+
+
+def msort(a):
+    if 1 >= len(a):
+        return a
+    k = len(a) // 2
+    return merge(msort(a[:k]), msort(a[k:]))
+      </div>
+      <form id="form16"><input type="text" name="i16-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A16()" title="Copy">Выполнить</button><div>output: </div><div class = "o16 out"></div>
+      </div>
+		
+		
+		
+		<div class = "algo"><a name = "l17"></a>
+      <h17 class = "name"><button onclick="Copy('a17')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Сортировка вставками.</h17>
+      <div class = "code" id="a17">
+def insertion_sort(a):
+    for i in range(1, len(a)):
+        tmp = a[i]
+        j = i - 1
+        while j >= 0 and a[j] > tmp: 
+            a[j + 1] = a[j]
+            j = j - 1 
+        a[j + 1] = tmp
+      </div>
+      <form id="form17"><input type="text" name="i17-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A17()" title="Copy">Выполнить</button><div>output: </div><div class = "o17 out"></div>
+      </div>
+		
+		
+		
+		<div class = "algo"><a name = "l18"></a>
+      <h18 class = "name"><button onclick="Copy('a18')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  Пузырьковая сортировка.</h18>
+      <div class = "code" id="a18">
+def bubble_sort(a):
+    n = len(a)
+    unordered = True
+    while unordered:
+        unordered = False
+        for j in range(n - 1):
+            if a[j] > a[j + 1]:
+                a[j], a[j + 1] = a[j + 1], a[j]
+                unordered = True 
+        n -= 1
+      </div>
+      <form id="form18"><input type="text" name="i18-1" placeholder="Список (писать через пробел)"></form><br>
+      <button onclick="A18()" title="Copy">Выполнить</button><div>output: </div><div class = "o18 out"></div>
+      </div>
+		
+		
+		
+	  <div class = "algo"><a name = "l19"></a>
+		<h19 class = "name"><button onclick="Copy('a19')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>  q_sort школьный.</h19>
+		<div class = "code" id="a19">
+import random
+
+def q_sort(a):
+	if 1 >= len(a):
+		return a
+	x = random.choice(a)
+	mid = [i for i in a if i == x]
+	left = [i for i in a if x > i]
+	right = [i for i in a if i > x]
+	return q_sort(left) + mid + q_sort(right)
+		</div>
+		<form id="form19"><input type="text" name="i19-1" placeholder="Список (писать через пробел)"></form><br>
+		<button onclick="A19()" title="Copy">Выполнить</button><div>output: </div><div class = "o19 out"></div>
+		</div>
+		  
+		  
+		  
+	  <div class = "algo"><a name = "l21"></a>
+		<h21 class = "name"><button onclick="Copy('a21')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>Запись слов из файла без повторов</h21>
+		<div class = "code" id="a21">
+open("output.txt", "w").close() #Создаёт новый файл
+
+for line in open("input.txt"):
+	for word in split(line): #Использует функцию разбиения на слова
+		if(word + "\n" not in open("output.txt")): 
+			with open("output.txt") as fo:
+				fo.write(word + "\n")
+		</div>
+		</div>
+
+
+		
+		<div class = "algo"><a name = "l23"></a>
+			<h21 class = "name"><button onclick="Copy('a23')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>Чтение матриц из файла (генератор)</h21>
+<div style = "white-space: pre; font-family: century gothic;">
+3 3 - размеры матрицы
+1 2 3
+4 5 6
+7 8 9 - 1 матрица
+1 2 3
+4 5 6
+7 8 9 - 2 матрица
+1 2 3
+4 5 6
+7 8 9 - 3 матрица
+</div>
+			<div class = "code" id="a23">
+def readmatr(fname):
+	with open(fname) as fi:
+		r, c = map(int, fi.readline().split())
+		for s in fi:
+			m = list(map(int, s.split()))
+			for i in range(r - 1):
+				m.append(list(map(int, s.split())))
+			yield m
+			</div>
+			</div>
+
+			<div class = "algo"><a name = "l24"></a>
+			<h21 class = "name"><button onclick="Copy('a24')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>Чтение матриц из файла (генератор) - разные размеры.</h21>
+<div style = "white-space: pre; font-family: century gothic;">
+3 3 - размеры 1 матрицы
+1 2 3
+4 5 6
+7 8 9 - 1 матрица
+3 2 - размеры 2 матрицы
+1 2
+4 5
+7 8 - 2 матрица
+2 4 - размеры 3 матрицы
+1 2 3 4
+5 6 7 8 - 3 матрица
+</div>
+			<div class = "code" id="a24">
+def readmatr2(fname):
+	with open(fname) as fi:
+		for s in fi:
+			r, c = map(int, s.split())
+			yield [[int(x) for x in fi.readline().split()] for i in range(r)]
+			</div>
+			</div>
+
+
+
+			<div class = "algo"><a name = "l25"></a>
+				<h21 class = "name"><button onclick="Copy('a25')" title="Copy"><img src = "images/copy.png" height = "10" width = "10"></button>Чтение матриц из файла (генератор) - с разделителем.</h21>
+	<div style = "white-space: pre; font-family: century gothic;">
+1 2 3
+4 5 6
+7 8 9 - 1 матрица
+
+1 2
+4 5
+7 8 - 2 матрица
+
+1 2 3 4
+5 6 7 8 - 3 матрица
+
+	</div>
+				<div class = "code" id="a25">
+def readmatr3(fname):
+	m = []
+	for s in open(fname):
+		if(s != "\n"):
+			m.append([int(x) for x in s.split()])
+		else:
+			yield m
+			m = []
+	yield m
+				</div>
+				</div>
+
+
+
+		  <br>
+		  <br>
+	  </div>
+	  <div style="height: 1000px;"></div>
+	  <div class="totop wrapper-img"><a href = "#top">
+		<img style = "max-width: 50px;" src="images/totop1.png" alt="" />
+		<img style = "max-width: 50px;" class="img-hide" src="images/totop2.png" alt="" />
+	</a></div>
+  </body>
+</html>

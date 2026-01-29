@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <title>SOMEL Python10</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="helper.css">
+</head>
+<body bgcolor="black">
+
+  <!-- Ниже во все блоки кода добавлены подробные пояснения -->
+
+  <div class="infoblock" id="stdin_stdout">
+    <h3 style="text-align: center;">Изменение стандартного ввода/вывода</h3>
+<pre><code class="language-python">
+import sys
+# sys.stdin — стандартный ввод, используется input()
+# sys.stdout — стандартный вывод, используется print()
+
+sys.stdin = open("input.txt", "r")  # Теперь input() читает из файла, а не из консоли
+sys.stdout = open("output.txt", "w")  # Теперь print() пишет в файл
+
+input()  # Считает строку из input.txt без символа \n
+print()  # Запишет пустую строку в output.txt
+
+sys.stdin.close()   # Закрываем файлы — обязательно!
+sys.stdout.close()
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="infinity">
+    <h3 style="text-align: center;">Математическая бесконечность</h3>
+<pre><code class="language-python">
+import math
+infinity = math.inf  # Специальное значение бесконечности
+
+x = int(input())
+x < infinity   # Любое число меньше +inf
+x > -infinity  # Любое число больше -inf
+
+infinity = float("inf")  # Альтернативный способ получить бесконечность
+
+from math import inf as INF
+mx = -INF   # Устанавливаем минимально возможное значение
+for i in range(5):
+    x = int(input())
+    if x > mx:  # Находим максимум
+        mx = x
+print(mx)
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="number_systems">
+    <h3 style="text-align: center;">Работа с системами счисления</h3>
+<pre><code class="language-python">
+# int() может преобразовывать строки в числа, включая разные системы счисления
+x = int(4)        # Просто число
+x = int(6.32)     # Округление вниз: 6
+x = int("3")     # Из строки
+
+x = int("21", 3)   # "21" в троичной => 2*3 + 1 = 7
+x = int("2a", 16)  # Шестнадцатеричная => 42
+
+# Обратные функции
+x = bin(10)  # '0b1010'
+x = oct(10)  # '0o12'
+x = hex(10)  # '0xA'
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="iterators">
+    <h3 style="text-align: center;">Подробнее про итераторы</h3>
+    <ul>
+      <li>Итерируемый объект — то, что можно перебирать (список, строка, генератор).</li>
+      <li>Итератор — объект, возвращающий элементы по одному.</li>
+      <li>Итератор обязан иметь методы __iter__() и __next__().</li>
+    </ul>
+<pre><code class="language-python">
+# Перебор кортежа — простой случай
+for elem in (0, 2, 4, 56):
+    print(elem)
+
+# Генераторное выражение создаёт итератор
+gen = (elem for elem in range(1, 10))
+for elem in gen:
+    print(elem)   # Выводятся значения, а не сам генератор!
+
+# Генератор выдаёт элементы один раз
+gen = (elem for elem in range(3))
+print(next(gen))  # 0
+print(next(gen))  # 1
+print(next(gen))  # 2
+# next(gen) вызовет StopIteration
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="enumerate">
+    <h3 style="text-align: center;">Enumerate</h3>
+<pre><code class="language-python">
+lis = ["a", "b", "c"]
+# enumerate возвращает пары (индекс, значение)
+for e in enumerate(lis):
+    print(e)
+
+# Сдвиг индекса начиная с 1
+gen = (elem for elem in range(3))
+for e in enumerate(gen, 1):
+    print(e)
+
+st = "Apple"
+for e in enumerate(st):
+    print(e)   # Индекс + буква
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="list_methods">
+    <h3 style="text-align: center;">Методы списков</h3>
+<pre><code class="language-python">
+lis = [1, 2, 3]
+
+lis.append(4)       # Добавить элемент в конец
+lis.extend([5, 6])  # Добавить элементы другого списка
+lis.pop()           # Удаляет и возвращает последний элемент
+lis.pop(2)          # Удаляет по индексу
+print(lis.pop())    # Выводит удалённый элемент
+
+lis.insert(2, 3)    # Вставить 3 на позицию 2
+lis.sort()          # Сортирует список
+lis.reverse()       # Переворачивает список
+
+lis = [1, 2, 3, 2, 4, 2]
+print(lis.count(2)) # Сколько раз встречается число 2
+lis.clear()         # Полная очистка списка
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="string_methods">
+    <h3 style="text-align: center;">Методы строк</h3>
+<pre><code class="language-python">
+st = "ab ab ba ba"
+print(st.split())       # Разбивает по пробелам
+
+st = "43-2"
+print(st.split("-"))   # Разбивает по '-'
+
+st = "abBA"
+print(st.upper())       # Верхний регистр
+print(st.lower())       # Нижний регистр
+print(st.isupper())     # Проверка регистра
+print(st.islower())
+print(st.isalpha())     # Только буквы?
+print(st.isdigit())     # Только цифры?
+print(st.isalnum())     # Буквы + цифры?
+
+st = "aabBaaabba"
+print(st.count("ab"))  # Подсчёт подстроки
+print(st.find("ab"))   # Первое вхождение или -1
+print(st.rfind("ab"))  # Последнее вхождение
+
+# Замены
+st = st.replace("ab", "ba")        # Все вхождения
+st = st.replace("ba", "ab", 2)     # Только первые 2
+st = st.replace("ab", "")          # Удаление подстроки
+
+st = "  AB    \n"
+print(st.strip())   # Удаление пробелов и \n по краям
+print(st.lstrip())  # Слева
+print(st.rstrip())  # Справа
+
+print(ord("a"))    # Код символа
+print(chr(12))      # Символ по коду
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="namespaces">
+    <h3 style="text-align: center;">Локальное и глобальное пространство имён</h3>
+<pre><code class="language-python">
+# Пример 1: используем переменную a из глобальной области
+
+def f():
+    print(a)
+
+a = 5
+f()       # 5
+print(a)  # 5
+</code></pre>
+
+<pre><code class="language-python">
+# Пример 2: локальная переменная перекрывает глобальную
+
+def f():
+    a = 1
+    print(a)  # Локальная
+
+a = 5
+f()          # 1
+print(a)     # Глобальная: 5
+</code></pre>
+
+<pre><code class="language-python">
+# Пример 3: ошибка — переменная a используется до присвоения
+
+def f():
+    print(a)  # Ошибка: Python считает, что a — локальная, т.к. есть присвоение ниже
+    a = 1     # Это делает a локальной переменной
+
+a = 5
+f()          # Ошибка UnboundLocalError
+print(a)
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="operator_star">
+    <h3 style="text-align: center;">Оператор *</h3>
+<pre><code class="language-python">
+a = [1, 2, 3]
+print(*a)  # Распаковка => print(1, 2, 3)
+
+# *args собирает все лишние аргументы в кортеж
+
+def func(a, *args):
+    print(a)
+    print(args)
+
+func(1, 2, 3, 4)
+
+# Распаковка в присваивании
+
+a, *b = [1, 2, 3, 4]   # a=1, b=[2,3,4]
+(fl1, *w1), (fl2, *w2), *words = [
+    "abbba",
+    "asdada",
+    "adasdxcxcz",
+    "asdadxcx"
+]
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="functions_variables">
+    <h3 style="text-align: center;">Функции — тоже переменные</h3>
+<pre><code class="language-python">
+# Функции можно передавать, сохранять, хранить в списках
+
+def f1(a, b):
+    return a + b
+
+def f2(a, b):
+    return a - b
+
+def f3(a, b):
+    return a * b
+
+lis = [f1, f2, f3]
+print(lis[1](3, 4))  # f2(3,4) => -1
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="zip_function">
+    <h3 style="text-align: center;">Функция zip</h3>
+<pre><code class="language-python">
+a = [1, 2, 3]
+b = ["apple", "pineapple", "pickle"]
+
+# zip объединяет элементы попарно
+for el in zip(a, b):
+    print(el)
+
+names = ['Алиса', 'Боб', 'Чарли']
+ages = [25, 30, 35]
+
+zipped = zip(names, ages)
+print(list(zipped))  # [('Алиса',25), ('Боб',30), ...]
+
+dic = dict(zip(names, ages))  # Создание словаря
+print(dic)
+</code></pre>
+  </div>
+
+  <div class="infoblock" id="stack">
+    <h3 style="text-align: center;">Стек, Очередь, Дек</h3>
+    <p>Стек - структура данных, работающая по принципу «последним пришёл — первым ушёл» (LIFO)</p>
+    <p>Мы пишем стек как обёртку списка:</p>
+<pre><code class="language-python">
+class Stack:
+    def __init__(self):
+        self.data = [] #Тут мы будем хранить всё
+    
+    def back(self):
+        return self.data[-1] #Возвращаем последний элемент
+    
+    def push(self, value):
+        self.data.append(value) #Добавляем элемент в конец
+        return self #Возвращаем себя (необязательный элемент)
+    
+    def pop(self):
+        return self.data.pop() #Удаляем и возвращаем последний элемент
+    
+    @property
+    def size(self): #Property - удобный способ оформлять функции как переменные
+        return len(self.data)
+    
+    def __len__(self):
+        return self.size #Если писать с property, можно писать без скобок
+
+    def clear(self):
+        self.data.clear() 
+</code></pre>
+    <p>Очередь - реализация на двух стеках</p>
+    <p>У нас есть 2 стека - input, output</p>
+    <ul>
+      <li>    output - [  - | -  ] - input</li>
+    </ul>
+    <p>Новые элементы добавляем в input</p>
+    <ul>
+      <li>    output - [  - | 1 ] - input</li>
+      <li>    output - [  - | 1 2 ] - input</li>
+      <li>    output - [  - | 1 2 3 ] - input</li>
+    </ul>
+    <p>Берём элементы из output</p>
+    <p>Сейчас output пуст, так что надо перенести все элементы из input</p>
+    <p>Берём последный из input и кладём в output</p>
+    <ul>
+      <li>    output - [  3 | 1 2 ] - input</li>
+      <li>    output - [  2 3 | 1 ] - input</li>
+      <li>    output - [  1 2 3 | - ] - input</li>
+    </ul>
+    <p>Теперь можно брать последний элемент из output</p>
+    <ul>
+      <li>    output - [  2 3 | - ] - input</li>
+    </ul>
+    <p>! Мы не кладём ничего в output, пока он не пуст !</p>
+    <p>Новые элементы кладём в input</p>
+    <p>В качестве упражнения, определите какие операции дали такие результаты:</p>
+    <ul>
+      <li>    output - [  2 3 | 4 ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Добавить 4</span></li>
+      <li>    output - [  2 3 | 4 5 ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Добавить 5</span></li>
+      <li>    output - [  3 | 4 5 ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Взять, получаем 2</span></li>
+      <li>    output - [  3 | 4 5 6 7 ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Добавляем</span></li>
+      <li>    output - [  - | 4 5 6 7 ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Взять, получаем 3</span></li>
+      <li>    output - [  4 5 6 7 | - ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Перемещаем перед следующим забором</span></li>
+      <li>    output - [  5 6 7 | - ] - input <span class="spoiler-inline" onclick="this.classList.toggle('revealed')">Забираем 4</span></li>
+    </ul>
+    <p></p>
+<pre><code class="language-python">
+class Queue:
+    def __init__(self):
+        self.input = [] #Вместо стеков используем чистые списки
+        self.output = []
+    
+    def put(self, n):
+        self.input.append(n) #Кладём в input
+    
+    def move(self): #Балансировка
+        if(len(self.output) == 0): #Изменяем только если output пуст!
+            self.output = self.input[::-1] #Представим что мы переложили стеки
+            self.input = [] #Соответственно, в input ничего не осталось
+
+    def get(self): #Вытаскиваем элемент из очереди
+        self.move() #Гарантируем, что output будет 
+        return self.output.pop() #Берем сразу из стека output
+    
+    def front(self): #Смотрим элемент из очереди
+        self.move() #Гарантируем, что output будет 
+        return self.output[-1] #Берем сразу из стека output
+
+    @property
+    def size(self):
+        return len(self.input) + len(self.output) #Размер - сумма размеров стеков
+    
+    def clear(self):
+        self.input = []
+        self.output = []
+</code></pre>
+
+  <p>Дек, deque (double-ended queue) - как очередь, только можно класть и брать с обоих сторон</p>
+<pre><code class="language-python">
+from collections import deque
+#Используем встроенный модуль
+d = deque([1, 2, 3])
+d.append(4) #Добавляем напрямую
+d.popleft()  #Забираем с другой стороны
+#Эти 2 функции позволяют использовать дек как обычную очередь
+
+d.appendleft(0) #Добавляем С обратной стороны
+d.pop()      #Забираем с обычной стороны
+</code></pre>
+  </div>
+
+<div class="infoblock" id="prefix_suffix_theory">
+    <h3 style="text-align: center;">Префиксные и суффиксные алгоритмы</h3>
+
+    <p><b>Префиксные алгоритмы</b> — это вычисления слева направо, где для каждого индекса рассчитывается значение на основе всех элементов слева.  
+    Примеры: префиксная сумма, префиксный минимум, максимум, произведение и т.д.</p>
+
+    <p><b>Суффиксные алгоритмы</b> — то же самое, но справа налево.  
+    Используются, когда нужно знать влияние «хвоста» массива после позиции.</p>
+
+    <h4>Зачем нужны?</h4>
+    <ul>
+        <li>Быстрые вычисления на подмассивах</li>
+        <li>Подготовка данных для алгоритмов «с двух сторон»</li>
+        <li>Решение задач на интервалы за O(1) после препроцессинга</li>
+    </ul>
+
+    <h3 style="text-align: center;">Префиксная сумма</h3>
+<pre><code class="language-python">
+# Префиксная сумма: prefix[i] = a[0] + ... + a[i]
+
+a = [3, 1, 4, 1, 5]
+prefix = [0] * len(a)
+
+current = 0
+for i, x in enumerate(a):
+    current += x
+    prefix[i] = current
+
+print(prefix)  # [3, 4, 8, 9, 14]
+</code></pre>
+
+    <h3 style="text-align: center;">Суффиксная сумма</h3>
+<pre><code class="language-python">
+# Суффиксная сумма: suffix[i] = a[i] + ... + a[n-1]
+
+a = [3, 1, 4, 1, 5]
+n = len(a)
+suffix = [0] * n
+
+current = 0
+for i in range(n - 1, -1, -1):
+    current += a[i]
+    suffix[i] = current
+
+print(suffix)  # [14, 11, 10, 6, 5]
+</code></pre>
+
+    <h3 style="text-align: center;">Префиксный минимум</h3>
+<pre><code class="language-python">
+# Префиксный минимум: min(a[0..i])
+
+a = [7, 3, 5, 2, 9]
+prefix_min = [0] * len(a)
+
+m = float('inf')
+for i, x in enumerate(a):
+    m = min(m, x)
+    prefix_min[i] = m
+
+print(prefix_min)  # [7, 3, 3, 2, 2]
+</code></pre>
+
+    <h3 style="text-align: center;">Суффиксный максимум</h3>
+<pre><code class="language-python">
+# Суффиксный максимум: max(a[i..n-1])
+
+a = [7, 3, 10, 2, 9]
+n = len(a)
+suffix_max = [0] * n
+
+m = float('-inf')
+for i in range(n - 1, -1, -1):
+    m = max(m, a[i])
+    suffix_max[i] = m
+
+print(suffix_max)  # [10, 10, 10, 9, 9]
+</code></pre>
+
+    <h2 style="text-align:center;">Задачи</h2>
+
+    <h3>Задача 1. Сумма на подотрезке</h3>
+    <p>Дан массив и много запросов вида (l, r). Нужно быстро находить сумму элементов на этом отрезке.</p>
+
+<pre><code class="language-python">
+# Используем prefix: sum(l..r) = prefix[r] - prefix[l-1]
+
+a = [3, 1, 4, 1, 5]
+prefix = [0] * (len(a) + 1)
+
+# Строим prefix так, что prefix[i] — сумма первых i элементов
+for i in range(1, len(prefix)):
+    prefix[i] = prefix[i-1] + a[i-1]
+
+def query(l, r):
+    return prefix[r+1] - prefix[l]
+
+print(query(1, 3))  # 1+4+1 = 6
+</code></pre>
+
+    <h3>Задача 2. Найти для каждого i, минимум слева и справа</h3>
+    <p>Полезно в задачах на «зажатые» интервалы и выбор лучшей позиции.</p>
+<pre><code class="language-python">
+# Для каждого i: минимальный элемент слева и справа
+
+a = [5, 2, 7, 1, 3]
+n = len(a)
+
+prefix_min = [0] * n
+suffix_min = [0] * n
+
+# Строим prefix_min
+m = float('inf')
+for i in range(n):
+    m = min(m, a[i])
+    prefix_min[i] = m
+
+# Строим suffix_min
+m = float('inf')
+for i in range(n-1, -1, -1):
+    m = min(m, a[i])
+    suffix_min[i] = m
+
+print(prefix_min)  # [5, 2, 2, 1, 1]
+print(suffix_min)  # [1, 1, 1, 1, 3]
+</code></pre>
+
+    <h3>Задача 3. Сумма подматрицы (2D префиксные суммы)</h3>
+    <p>Дана матрица и множество запросов: найти сумму элементов в прямоугольнике  
+    с углами (x1, y1) и (x2, y2).  
+    Используем двумерный массив префиксных сумм.</p>
+
+<pre><code class="language-python">
+# 2D префиксные суммы
+# prefix[i][j] = сумма всех элементов в прямоугольнике от (0,0) до (i-1, j-1)
+
+matrix = [
+    [3, 1, 4],
+    [1, 5, 9],
+    [2, 6, 5]
+]
+
+n = len(matrix)
+m = len(matrix[0])
+
+# Создаем prefix с запасом (n+1)*(m+1)
+prefix = [[0]*(m+1) for _ in range(n+1)]
+
+# Строим 2D префиксные суммы
+for i in range(1, n+1):
+    for j in range(1, m+1):
+        prefix[i][j] = (matrix[i-1][j-1] 
+                        + prefix[i-1][j] 
+                        + prefix[i][j-1] 
+                        - prefix[i-1][j-1])
+
+#Матрица префиксных сумм:
+# 0   0   0   0
+# 0   3   4   8
+# 0   4   10  23
+# 0   6   18  36
+
+# Функция для получения суммы подматрицы
+# x1, y1 — верхний левый угол
+# x2, y2 — нижний правый угол
+def query(x1, y1, x2, y2):
+    return (prefix[x2+1][y2+1] #Берём от (0, 0) до (x2, x1)
+            - prefix[x1][y2+1] #Вычитаем до (x1, x2)
+            - prefix[x2+1][y1] #Вычитаем до (x2, y1)
+            + prefix[x1][y1])  #Возвращаем до (x1, y1): мы вычли дважды
+
+# Пример: сумма подматрицы от (0,1) до (2,2)
+print(query(0, 1, 2, 2))  # 1+4 + 5+9 + 6+5 = 30
+</code></pre>
+<img src="img/matrix.png" width="100%">
+
+</div>
+
+
+<div class="infoblock" id="two_pointers">
+    <h3 style="text-align: center;">Алгоритмы с двумя указателями</h3>
+
+<p>
+Метод двух указателей — это приём, при котором мы используем два индекса (обычно left и right), которые двигаются навстречу друг другу или в одном направлении.  
+Этот метод позволяет решать многие задачи за линейное время <b>O(n)</b>, избегая вложенных циклов.
+</p>
+
+<hr>
+
+<h4>1. Поиск пары i, j в отсортированном списке, такой что a[i] + a[j] = k</h4>
+<p>Так как список упорядочен, можно поставить один указатель в начало, второй — в конец. Если сумма больше k — двигаем правый указатель, если меньше — левый.</p>
+
+<pre><code class="language-python">
+a = [1, 3, 4, 5, 7, 10]
+k = 9
+
+l, r = 0, len(a) - 1 #Ставим указатели на разные концы
+while l < r:
+    s = a[l] + a[r] #То, что мы имеем
+    if s == k:
+        print(l, r)
+        break
+    elif s > k: #Если перебор - сдвигаем правую границу (она перейдёт на меньший элемент)
+        r -= 1
+    else: #Если недобор - сдвигаем левую границу (она перейдёт на больший элемент)
+        l += 1
+</code></pre>
+
+<hr>
+
+<h4>2. Удаление повторов в отсортированном списке (сжатие списка)</h4>
+<p>Используем два указателя: один читает элементы, другой записывает уникальные.</p>
+
+<pre><code class="language-python">
+a = [1, 1, 2, 2, 2, 3, 4, 4]
+w = 1  # Куда писать
+
+for r in range(1, len(a)): #r - куда смотреть
+    if a[r] != a[r - 1]: #Если мы на переходе: текущий элемент не равен предыдущему
+        a[w] = a[r] #Ставим текущий на место
+        w += 1 # Изменяем, куда надо ставить
+
+print(a[:w])  # [1, 2, 3, 4]
+</code></pre>
+
+<hr>
+
+<h4>3. Разделение списка: слева чётные, справа нечётные</h4>
+<p>Два указателя идут навстречу: левый ищет нечётное, правый — чётное, меняем их.</p>
+
+<pre><code class="language-python">
+a = [3, 2, 5, 6, 7, 8]
+l, r = 0, len(a) - 1
+
+while l < r: # Пока указатели не столкнутся
+    if a[l] % 2 == 0: #Если левое чётное - так и надо
+        l += 1
+    elif a[r] % 2 == 1: Если левое нечётное - ищем четное справа
+        r -= 1
+    else:
+        a[l], a[r] = a[r], a[l] #Теперь слева нечетное, справа чётное. Меняем местами.
+
+print(a)
+</code></pre>
+
+<hr>
+
+<h4>4. Задача с перегородками (максимальная вместимость)</h4>
+
+<p>Задача Container With Most Water (Перегородки)</p>
+
+<p>Дан список целых чисел h, где каждый элемент — это высота вертикальной перегородки.</p>
+<p>Каждая перегородка стоит на позиции, соответствующей её индексу.</p>
+
+<p>Нужно выбрать две разные перегородки с индексами x1 и x2, между которыми можно получить контейнер максимального объёма.</p>
+<p>Указатели стоят по краям и двигаются к центру. Объём определяется по формуле:</p>
+
+<p style="text-align: center;"><b>V = min(h1, h2) * (x2 - x1 - 1)</b></p>
+
+<p>Требуется найти такой максимум V среди всех возможных пар перегородок.</p>
+<img src="img/container.jpg">
+<pre><code class="language-python">
+h = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+l, r = 0, len(h) - 1
+best = 0
+
+while l < r: #Пока не встретимся
+    V = min(h[l], h[r]) * (r - l - 1) #Рассчитываем текущий объем
+    best = max(best, V) #Обновляем ответ
+
+    if h[l] < h[r]: #Если левая перегородка ниже правой, попробуем найти повыше
+        l += 1
+    else: #Так же с правой
+        r -= 1
+
+print(best)
+</code></pre>
+
+<hr>
+
+<h4>5. Максимальная подстрока без повторяющихся символов</h4>
+<p>
+Два указателя формируют "скользящее окно".  
+Расширяем правый указатель, пока нет повторов.  
+При повторе двигаем левый, удаляя символы из окна.
+</p>
+
+<pre><code class="language-python">
+s = "abacaba"
+used = set() #Тут храним текущие символы
+l = 0
+best = 0
+
+for r in range(len(s)): #Фиксируем правый
+    while s[r] in used: #Если новый символ уже использовался
+        used.remove(s[l]) #Двигаем левую границу, пока не выбросим старый символ пересекающийся с новым
+        l += 1
+    used.add(s[r])
+    best = max(best, r - l + 1)
+
+print(best)
+</code></pre>
+
+<hr>
+
+<h4>6. Максимальная подстрока, содержащая не более 10 букв 's'</h4>
+<p>
+Аналогично окну без повторов, но теперь ограничение — число букв 's'.  
+Если их становится больше 10, сдвигаем левый указатель.
+</p>
+
+<pre><code class="language-python">
+s = "ssasbsccsssdsss"
+l = 0
+count_s = 0
+best = 0
+
+for r in range(len(s)):
+    if s[r] == 's':
+        count_s += 1
+
+    while count_s > 10:
+        if s[l] == 's':
+            count_s -= 1
+        l += 1
+
+    best = max(best, r - l + 1)
+
+print(best)
+</code></pre>
+
+</div>
+
+<div class="infoblock" id="greedy_lecture">
+    <h3 style="text-align: center;">Жадные алгоритмы — конспект лекции</h3>
+
+    <h4>1. Определение</h4>
+    <p>
+        <b>Жадный алгоритм</b> — это алгоритм, который на каждом шаге
+        делает <b>локально оптимальный выбор</b>,
+        не пересматривая его в дальнейшем.
+    </p>
+
+    <p>
+        Основной принцип:
+        <br>
+        <b>«Лучшее сейчас → оптимум в конце»</b>
+    </p>
+
+<pre><code class="language-python">
+# Общая схема жадного алгоритма
+while задача не решена:
+    выбрать лучший вариант на текущем шаге
+    применить его
+</code></pre>
+
+    <h4>2. Свойства жадных алгоритмов</h4>
+    <ul>
+        <li>Простая логика</li>
+        <li>Высокая скорость работы</li>
+        <li>Часто используются сортировки</li>
+        <li>Работают не для всех задач</li>
+    </ul>
+
+    <h4>3. Условия применимости</h4>
+    <ul>
+        <li><b>Жадный выбор</b> — оптимальный выбор можно сделать сразу</li>
+        <li><b>Оптимальная подструктура</b> — задача разбивается на подзадачи</li>
+    </ul>
+
+    <hr>
+
+    <h3>4. Классические задачи</h3>
+
+    <h4>Задача 1. Максимальное количество непересекающихся отрезков</h4>
+
+    <p>
+        Дано <code>n</code> отрезков <code>[lᵢ, rᵢ]</code>.
+        Требуется выбрать максимальное количество отрезков,
+        не имеющих общих точек.
+    </p>
+
+    <p><b>Жадная стратегия:</b> выбирать отрезки с минимальным правым концом.</p>
+
+<pre><code class="language-python">
+def max_non_intersecting_segments(segments):
+    # сортировка по правому концу
+    segments.sort(key=lambda x: x[1])
+
+    count = 0
+    last_end = -10**18
+
+    for l, r in segments:
+        if l >= last_end:
+            count += 1
+            last_end = r
+
+    return count
+
+
+segments = [(1, 3), (2, 5), (4, 7), (6, 9)]
+print(max_non_intersecting_segments(segments))
+</code></pre>
+
+    <hr>
+
+    <h4>Задача 2. Размен суммы минимальным числом монет</h4>
+
+    <p>
+        Даны номиналы монет и сумма <code>S</code>.
+        Каждого номинала можно использовать неограниченно.
+    </p>
+
+    <p><b>Жадная стратегия:</b> брать самую крупную возможную монету.</p>
+
+<pre><code class="language-python">
+def greedy_coin_change(coins, amount):
+    coins.sort(reverse=True)
+    result = []
+
+    for coin in coins:
+        while amount >= coin:
+            amount -= coin
+            result.append(coin)
+
+    if amount != 0:
+        return None  # размен невозможен
+
+    return result
+
+
+coins = [10, 5, 2, 1]
+amount = 28
+print(greedy_coin_change(coins, amount))
+</code></pre>
+
+    <p>
+        ⚠️ Жадный алгоритм корректен не для всех наборов монет.
+    </p>
+
+    <hr>
+
+    <h4>Задача 3. Дробный рюкзак</h4>
+
+    <p>
+        Есть рюкзак вместимости <code>W</code> и предметы
+        с ценностью <code>valueᵢ</code> и весом <code>weightᵢ</code>.
+        Можно брать дробные части предметов.
+    </p>
+
+    <p><b>Жадная стратегия:</b> брать предметы с максимальным
+        <code>value / weight</code>.</p>
+
+<pre><code class="language-python">
+def fractional_knapsack(items, capacity):
+    # items: (value, weight)
+    items.sort(key=lambda x: x[0] / x[1], reverse=True)
+
+    total_value = 0.0
+
+    for value, weight in items:
+        if capacity == 0:
+            break
+        if weight <= capacity:
+            capacity -= weight
+            total_value += value
+        else:
+            total_value += value * (capacity / weight)
+            capacity = 0
+
+    return total_value
+
+
+items = [(60, 10), (100, 20), (120, 30)]
+capacity = 50
+print(fractional_knapsack(items, capacity))
+</code></pre>
+
+    <hr>
+
+    <h4>Задача 4. Планирование занятий</h4>
+
+    <p>
+        Дано расписание занятий с временем начала и окончания.
+        За один момент времени можно посещать только одно занятие.
+    </p>
+
+    <p>
+        <b>Эквивалентна задаче отрезков.</b>
+        Используется та же жадная стратегия.
+    </p>
+
+<pre><code class="language-python">
+def max_classes(schedule):
+    schedule.sort(key=lambda x: x[1])
+    count = 0
+    last_end = -10**18
+
+    for start, end in schedule:
+        if start >= last_end:
+            count += 1
+            last_end = end
+
+    return count
+
+
+classes = [(9, 10), (9.5, 11), (10, 11), (11, 12)]
+print(max_classes(classes))
+</code></pre>
+
+    <hr>
+
+    <h3>5. Итоги</h3>
+    <ul>
+        <li>Жадные алгоритмы делают локально лучший выбор</li>
+        <li>Быстрые и простые в реализации</li>
+        <li>Требуют доказательства корректности</li>
+        <li>Подходят не для всех задач</li>
+    </ul>
+
+</div>
+
+
+  <script src="../logtable/helper.js"></script>
+  <script src="helper.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+
+</body>
+</html>

@@ -1,0 +1,166 @@
+body {
+    background: #000;
+    color: #fff;
+    font-family: "Century Gothic", sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-size: 1.2rem; /* Адаптируем базовый размер для чтения конспекта */
+}
+
+header {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.header-top, .header-bottom {
+    font-size: 20px;
+}
+.title {
+    font-size: 6rem; /* Изменено с 6rem для схожести */
+    color: aqua;
+    margin: -10px 0;
+}
+
+/* НАВИГАЦИОННОЕ МЕНЮ (ВЕРТИКАЛЬНОЕ) */
+.topics-menu {
+    margin: 30px auto;
+    padding: 0 25px; 
+    max-width: 800px;
+}
+
+.topics-menu ul { 
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.topics-menu li {
+    margin-bottom: 3px; 
+}
+
+/* Стили для основных ссылок */
+.topics-menu > ul > li > a {
+    display: block;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px; 
+    border-radius: 8px; 
+    transition: background 0.3s ease;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.topics-menu > ul > li > a:hover {
+    background-color: darkorange;
+}
+
+/* Стили для вложенных ссылок (подразделов) */
+.topics-menu ul ul {
+    padding-left: 20px; /* Отступ для вложенности */
+    margin-bottom: 10px;
+}
+
+.topics-menu ul ul a {
+    display: block;
+    background-color: #383838; /* Более тёмный фон для вложенных пунктов */
+    color: rgb(253, 255, 232);
+    text-decoration: none;
+    padding: 5px 15px;
+    margin: 3px 0;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+    font-size: 1rem;
+}
+
+.topics-menu ul ul a:hover {
+    background-color: rgb(204, 112, 0);
+}
+
+/* СТИЛИ КОНТЕНТА (СМЕСЬ ВАШИХ СТИЛЕЙ С БИОЛОГИЕЙ) */
+main {
+    padding: 25px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Заголовки */
+h1 {
+    color: rgb(62, 139, 255); /* Синий */
+    text-align: center;
+    border-bottom: 2px solid rgb(62, 139, 255);
+    padding-bottom: 10px;
+    margin-top: 50px;
+}
+
+h2 {
+    color: aqua; /* Светло-голубой */
+    position: sticky;
+    top: 0; 
+    z-index: 10; 
+    margin: 0;
+    padding: 15px 0;
+    background-color: #000;
+    border-bottom: 1px dashed aqua;
+}
+
+h3 {
+    color: rgb(139, 255, 183); /* Светло-зеленый */
+    position: sticky;
+    top: 60px; /* Ниже h2 */
+    z-index: 9;
+    margin: 0;
+    padding: 10px 0;
+    background-color: #000;
+}
+
+h4 {
+    color: rgb(172, 248, 110); /* Желто-зеленый */
+    margin-top: 25px;
+}
+
+/* Стиль секций с границами из вашего файла */
+section {
+    padding-left: 15px;
+    border-left: 3px double aqua;
+    margin-bottom: 30px;
+}
+
+section section {
+    padding-left: 15px;
+    border-left: 3px dashed aqua;
+}
+
+section section section {
+    padding-left: 15px;
+    border-left: 3px dotted aqua;
+}
+
+/* Списки контента */
+ul, ol {
+    margin-left: 30px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 10px;
+}
+
+/* Дополнительный блок для примечаний (как в Биологии) */
+.note { 
+    background-color: rgba(62, 139, 255, 0.1); 
+    padding: 15px; 
+    border-left: 5px solid rgb(62, 139, 255);
+    border-radius: 5px; 
+    margin: 15px 0 30px; 
+}
+
+/* Стиль для формул (KaTeX) */
+.katex-display {
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 5px;
+    margin: 20px 0;
+}

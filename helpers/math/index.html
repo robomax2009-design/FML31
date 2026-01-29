@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Somel - Math</title>
+    <link rel="stylesheet" href="helper.css">
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"
+        onload="document.addEventListener('DOMContentLoaded', function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '\\[', right: '\\]', display: true},
+                    {left: '$', right: '$', display: false},
+                    {left: '\\(', right: '\\)', display: false}
+                ],
+                throwOnError : false
+            });
+        });">
+    </script>
+</head>
+<body bgcolor="black">
+
+<div class="infoblock">
+    <a name="degree"></a>
+    <h3 style="text-align: center;">Основные формулы тригонометрии</h3>
+    <div class="container">
+        
+        <!-- Основные тождества -->
+        <div class="section">
+            <h2>Основные тригонометрические тождества</h2>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Основное тождество</h3>
+                    <div class="formula">\(\sin^2 \alpha + \cos^2 \alpha = 1\)</div>
+                    <p>Фундаментальное соотношение между синусом и косинусом одного угла.</p>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Тангенс и котангенс</h3>
+                    <div class="formula">\(\tan \alpha = \dfrac{\sin \alpha}{\cos \alpha}\)</div>
+                    <div class="formula">\(\cot \alpha = \dfrac{\cos \alpha}{\sin \alpha}\)</div>
+                    <div class="formula">\(\tan \alpha \cdot \cot \alpha = 1\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Производные тождества</h3>
+                    <div class="formula">\(1 + \tan^2 \alpha = \dfrac{1}{\cos^2 \alpha}\)</div>
+                    <div class="formula">\(1 + \cot^2 \alpha = \dfrac{1}{\sin^2 \alpha}\)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Формулы сложения -->
+        <div class="section">
+            <h2>Формулы сложения и вычитания углов</h2>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Синус суммы и разности</h3>
+                    <div class="formula">\(\sin(\alpha + \beta) = \sin \alpha \cos \beta + \cos \alpha \sin \beta\)</div>
+                    <div class="formula">\(\sin(\alpha - \beta) = \sin \alpha \cos \beta - \cos \alpha \sin \beta\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Косинус суммы и разности</h3>
+                    <div class="formula">\(\cos(\alpha + \beta) = \cos \alpha \cos \beta - \sin \alpha \sin \beta\)</div>
+                    <div class="formula">\(\cos(\alpha - \beta) = \cos \alpha \cos \beta + \sin \alpha \sin \beta\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Тангенс суммы и разности</h3>
+                    <div class="formula">\(\tan(\alpha + \beta) = \dfrac{\tan \alpha + \tan \beta}{1 - \tan \alpha \tan \beta}\)</div>
+                    <div class="formula">\(\tan(\alpha - \beta) = \dfrac{\tan \alpha - \tan \beta}{1 + \tan \alpha \tan \beta}\)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Формулы двойного и тройного угла -->
+        <div class="section">
+            <h2>Формулы кратных углов</h2>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Двойной угол</h3>
+                    <div class="formula">\(\sin 2\alpha = 2 \sin \alpha \cos \alpha\)</div>
+                    <div class="formula">\(\cos 2\alpha = \cos^2 \alpha - \sin^2 \alpha\)</div>
+                    <div class="formula">\(\cos 2\alpha = 2\cos^2 \alpha - 1 = 1 - 2\sin^2 \alpha\)</div>
+                    <div class="formula">\(\tan 2\alpha = \dfrac{2\tan \alpha}{1 - \tan^2 \alpha}\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Тройной угол</h3>
+                    <div class="formula">\(\sin 3\alpha = 3\sin \alpha - 4\sin^3 \alpha\)</div>
+                    <div class="formula">\(\cos 3\alpha = 4\cos^3 \alpha - 3\cos \alpha\)</div>
+                    <div class="formula">\(\tan 3\alpha = \dfrac{3\tan \alpha - \tan^3 \alpha}{1 - 3\tan^2 \alpha}\)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Преобразование сумм и произведений -->
+        <div class="section">
+            <h2>Преобразование сумм в произведения и произведений в суммы</h2>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Суммы синусов и косинусов</h3>
+                    <div class="formula">\(\sin \alpha + \sin \beta = 2 \sin \dfrac{\alpha + \beta}{2} \cos \dfrac{\alpha - \beta}{2}\)</div>
+                    <div class="formula">\(\sin \alpha - \sin \beta = 2 \sin \dfrac{\alpha - \beta}{2} \cos \dfrac{\alpha + \beta}{2}\)</div>
+                    <div class="formula">\(\cos \alpha + \cos \beta = 2 \cos \dfrac{\alpha + \beta}{2} \cos \dfrac{\alpha - \beta}{2}\)</div>
+                    <div class="formula">\(\cos \alpha - \cos \beta = -2 \sin \dfrac{\alpha + \beta}{2} \sin \dfrac{\alpha - \beta}{2}\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Произведения в суммы</h3>
+                    <div class="formula">\(2 \sin \alpha \sin \beta = \cos(\alpha - \beta) - \cos(\alpha + \beta)\)</div>
+                    <div class="formula">\(2 \cos \alpha \cos \beta = \cos(\alpha - \beta) + \cos(\alpha + \beta)\)</div>
+                    <div class="formula">\(2 \sin \alpha \cos \beta = \sin(\alpha + \beta) + \sin(\alpha - \beta)\)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Формулы понижения степени и универсальная подстановка -->
+        <div class="section">
+            <h2>Формулы понижения степени и универсальная подстановка</h2>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <h3>Понижение степени</h3>
+                    <div class="formula">\(\sin^2 \alpha = \dfrac{1 - \cos 2\alpha}{2}\)</div>
+                    <div class="formula">\(\cos^2 \alpha = \dfrac{1 + \cos 2\alpha}{2}\)</div>
+                    <div class="formula">\(\sin^3 \alpha = \dfrac{3\sin \alpha - \sin 3\alpha}{4}\)</div>
+                    <div class="formula">\(\cos^3 \alpha = \dfrac{3\cos \alpha + \cos 3\alpha}{4}\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Универсальная тригонометрическая подстановка</h3>
+                    <p>Пусть \(t = \tan \dfrac{\alpha}{2}\), тогда:</p>
+                    <div class="formula">\(\sin \alpha = \dfrac{2t}{1 + t^2}\)</div>
+                    <div class="formula">\(\cos \alpha = \dfrac{1 - t^2}{1 + t^2}\)</div>
+                    <div class="formula">\(\tan \alpha = \dfrac{2t}{1 - t^2}\)</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Обратные тригонометрические функции -->
+        <div class="section">
+            <h2>Обратные тригонометрические функции (аркфункции)</h2>
+            
+            <h3>Определения и основные свойства</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Функция</th>
+                        <th>Обозначение</th>
+                        <th>Определение</th>
+                        <th>Область определения</th>
+                        <th>Область значений</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Арксинус</td>
+                        <td>\(\arcsin x\) или \(\sin^{-1} x\)</td>
+                        <td>\(\sin y = x\)</td>
+                        <td>\(x \in [-1, 1]\)</td>
+                        <td>\(y \in \left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]\)</td>
+                    </tr>
+                    <tr>
+                        <td>Арккосинус</td>
+                        <td>\(\arccos x\) или \(\cos^{-1} x\)</td>
+                        <td>\(\cos y = x\)</td>
+                        <td>\(x \in [-1, 1]\)</td>
+                        <td>\(y \in [0, \pi]\)</td>
+                    </tr>
+                    <tr>
+                        <td>Арктангенс</td>
+                        <td>\(\arctan x\) или \(\tan^{-1} x\)</td>
+                        <td>\(\tan y = x\)</td>
+                        <td>\(x \in \mathbb{R}\)</td>
+                        <td>\(y \in \left(-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right)\)</td>
+                    </tr>
+                    <tr>
+                        <td>Арккотангенс</td>
+                        <td>\(\text{arccot } x\) или \(\cot^{-1} x\)</td>
+                        <td>\(\cot y = x\)</td>
+                        <td>\(x \in \mathbb{R}\)</td>
+                        <td>\(y \in (0, \pi)\)</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h3>Основные соотношения для аркфункций</h3>
+            <div class="formula-grid">
+                <div class="formula-card">
+                    <div class="formula">\(\arcsin x + \arccos x = \dfrac{\pi}{2}\)</div>
+                    <div class="formula">\(\arctan x + \text{arccot } x = \dfrac{\pi}{2}\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <div class="formula">\(\arcsin(-x) = -\arcsin x\)</div>
+                    <div class="formula">\(\arccos(-x) = \pi - \arccos x\)</div>
+                    <div class="formula">\(\arctan(-x) = -\arctan x\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <div class="formula">\(\sin(\arcsin x) = x, \quad x \in [-1, 1]\)</div>
+                    <div class="formula">\(\arcsin(\sin x) = x, \quad x \in \left[-\dfrac{\pi}{2}, \dfrac{\pi}{2}\right]\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <div class="formula">\(\cos(\arccos x) = x, \quad x \in [-1, 1]\)</div>
+                    <div class="formula">\(\arccos(\cos x) = x, \quad x \in [0, \pi]\)</div>
+                </div>
+                
+                <div class="formula-card">
+                    <h3>Тригонометрические тождества с аркфункциями</h3>
+                    <div class="formula">\(\sin(\arccos x) = \sqrt{1 - x^2}\)</div>
+                    <div class="formula">\(\cos(\arcsin x) = \sqrt{1 - x^2}\)</div>
+                    <div class="formula">\(\tan(\arcsin x) = \dfrac{x}{\sqrt{1 - x^2}}\)</div>
+                    <div class="formula">\(\sin(\arctan x) = \dfrac{x}{\sqrt{1 + x^2}}\)</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="infoblock">
+    <!-- Логарифмы -->
+    <!-- Свойства логарифмов -->
+<div class="section">
+    <h2 style="text-align:center;">Свойства логарифмов</h2>
+
+    <p style="text-align:center;">
+        \((a>0,\; a\neq1,\; b>0,\; c>0,\; m,n\in\mathbb{R})\)
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>№</th>
+                <th>Формула</th>
+                <th>№</th>
+                <th>Формула</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>\(a^{\log_a b}=b\)</td>
+                <td>9</td>
+                <td>\(\log_{a^n} b=\dfrac{1}{n}\log_a b\)</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>\(b=a^{\log_a b}\)</td>
+                <td>10</td>
+                <td>\(\log_{1/a} b=-\log_a b=\log_a b^{-1}\)</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>\(\log_a a=1\)</td>
+                <td>11</td>
+                <td>\(\log_{a^m} b^n=\dfrac{n}{m}\log_a b\)</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>\(\log_a 1=0\)</td>
+                <td>12</td>
+                <td>\(\log_{a^m} b^m=\log_a b\)</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>\(\log_a a^k=k\)</td>
+                <td>13</td>
+                <td>\(\log_a (bc)=\log_a b+\log_a c\)</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>\(k=\log_a a^k\)</td>
+                <td>14</td>
+                <td>\(\log_a b+\log_a c=\log_a (bc)\)</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>\(\log_a b^n=n\log_a b\)</td>
+                <td>15</td>
+                <td>\(\log_a \dfrac{b}{c}=\log_a b-\log_a c\)</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>\(m\log_a b=\log_a b^m\)</td>
+                <td>16</td>
+                <td>\(\log_a b-\log_a c=\log_a \dfrac{b}{c}\)</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+
+</div>
+
+
+<script src="../logtable/helper.js"></script>
+<script src="helper.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>

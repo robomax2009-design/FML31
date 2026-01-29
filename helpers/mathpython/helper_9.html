@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="utf-8">
+    <title>Somel - Python</title>
+    <link rel="stylesheet" href="helper.css">
+</head>
+<body bgcolor="black">
+
+<div class="infoblock">
+    <a name="degree"></a>
+    <h3 style="text-align: center;">Возведение числа в степень</h3>
+    <!-- Добавлено пояснение -->
+    <p>Функция последовательно умножает число <code>x</code> само на себя <code>|y|</code> раз. Для отрицательной степени берётся обратное значение.</p>
+    <pre><code class="language-python">
+def degree(x, y):
+    p = 1
+    for i in range(abs(y)):  # повторяем умножение abs(y) раз
+        p *= x
+    if y < 0:  # если степень отрицательная — берём обратную величину
+        p = 1 / p
+    return p
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="is_degree"></a>
+    <h3 style="text-align: center;">Является ли число степенью другого числа</h3>
+    <p>Функция проверяет, можно ли получить число <code>x</code>, последовательно умножая <code>k</code> само на себя.</p>
+    <pre><code class="language-python">
+def is_degree(x, k):
+    p = 1
+    while x > p:  # увеличиваем p до тех пор, пока не превысим x
+        p *= k
+    return p == x  # если совпало — x является степенью k
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="is_poly"></a>
+    <h3 style="text-align: center;">Проверка палиндрома</h3>
+    <p>Проверяется, одинаково ли число читается слева направо и справа налево.</p>
+    <pre><code class="language-python">
+def is_poly(x):
+    m = x  # сохраняем исходное значение
+    new = 0
+    while x > 0:
+        new = new * 10 + x % 10  # формируем число наоборот
+        x //= 10
+    return m == new
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="cou"></a>
+    <h3 style="text-align: center;">Самая часто встречаемая цифра</h3>
+    <p>Подсчитывается количество вхождений каждой цифры, после чего выбирается наиболее частая.</p>
+    <pre><code class="language-python">
+def cou(x):
+    cnt_list = [0] * 10  # список счётчиков для цифр 0–9
+    while x > 0:
+        cnt_list[x % 10] += 1
+        x //= 10
+    mx = 0
+    mi = 0
+    for i in range(10):  # ищем цифру с максимальным количеством
+        if cnt_list[i] > mx:
+            mx = cnt_list[i]
+            mi = i
+    return mi
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="del_count"></a>
+    <h3 style="text-align: center;">Нахождение количества делителей числа</h3>
+    <p>Функция перебирает возможные делители до квадратного корня числа, учитывая парные делители.</p>
+    <pre><code class="language-python">
+def del_count(x):
+    c = 1
+    cou = 0
+    while x > c * c:
+        if x % c == 0:  # найден делитель
+            cou += 2   # пара: c и x/c
+        c += 1
+    if x % c == 0:  # если делитель — корень
+        cou += 1
+    return cou
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="prim"></a>
+    <h3 style="text-align: center;">Нахождение простых делителей числа</h3>
+    <p>Последовательно делим число на все возможные простые делители, добавляя их в список.</p>
+    <pre><code class="language-python">
+def prim(n):
+    i = 2
+    primfac = []
+    while n >= i * i:
+        while n % i == 0:  # если делится — добавляем фактор
+            primfac.append(i)
+            n //= i
+        i += 1
+    if n > 1:
+        primfac.append(n)  # оставшийся простой делитель
+    return primfac
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="found"></a>
+    <h3 style="text-align: center;">Нахождение элемента в списке</h3>
+    <p>Простая линейная проверка наличия значения <code>x</code> в списке <code>a</code>.</p>
+    <pre><code class="language-python">
+def found(x, a):
+    for i in a:
+        if x == i:
+            return True
+    return False
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="sum_list"></a>
+    <h3 style="text-align: center;">Сумма элементов списка</h3>
+    <p>Последовательно складывает элементы списка.</p>
+    <pre><code class="language-python">
+def sum_list(x):
+    s = 0
+    for i in x:
+        s += i
+    return s
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="prime"></a>
+    <h3 style="text-align: center;">Простое число</h3>
+    <p>Проверка, имеет ли число делители, кроме 1 и самого себя.</p>
+    <pre><code class="language-python">
+def prime(x):
+    d = 2
+    while x >= d * d:
+        if x % d == 0:
+            return False
+        d += 1
+    return x > 1
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="fib"></a>
+    <h3 style="text-align: center;">Фибоначчи (n-ое число)</h3>
+    <p>Рекурсивная версия через параметры, хранящие два последних значения последовательности.</p>
+    <pre><code class="language-python">
+def fib(n, a=0, b=1):
+    if n < 2:
+        return n
+    return a + fib(n-1, b, a+b)
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="nod_nok"></a>
+    <h3 style="text-align: center;">НОД и НОК</h3>
+    <p>НОД вычисляется по алгоритму Евклида, НОК — через формулу <code>a*b / НОД</code>.</p>
+    <pre><code class="language-python">
+def nod(a, b):
+    while a != 0 and b != 0:
+        if a > b:
+            a = a % b
+        else:
+            b = a % a
+    return a + b
+
+def nok(a, b):
+    return a * b // nod(a, b)
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="sort"></a>
+    <h3 style="text-align: center;">Сортировки</h3>
+    <p>Разные алгоритмы сортировки: выбором, быстрая, вставками и пузырьковая.</p>
+    <pre><code class="language-python">
+def selection_sort(a):
+    for i in range(len(a)-1):
+        mini = i
+        for j in range(i+1, len(a)):
+            if a[mini] > a[j]:  # ищем минимальный элемент
+                mini = j
+        a[i], a[mini] = a[mini], a[i]
+
+def quick_sort(x):
+    if len(x) < 2:
+        return x
+    pivot = x[0]
+    less = [i for i in x[1:] if i <= pivot]
+    greater = [i for i in x[1:] if i > pivot]
+    return quick_sort(less) + [pivot] + quick_sort(greater)
+
+def insertion_sort(a):
+    for i in range(1, len(a)):
+        tmp = a[i]
+        j = i-1
+        while j >= 0 and a[j] > tmp:  # сдвигаем элементы вправо
+            a[j+1] = a[j]
+            j -= 1
+        a[j+1] = tmp
+
+def bubble_sort(a):
+    n = len(a)
+    unordered = True
+    while unordered:
+        unordered = False
+        for j in range(n-1):
+            if a[j] > a[j+1]:  # пузырёк поднимается вверх
+                a[j], a[j+1] = a[j+1], a[j]
+                unordered = True
+        n -= 1
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="readmatr"></a>
+    <h3 style="text-align: center;">Чтение матриц из файла</h3>
+    <p>Функция читает файл, где матрицы разделены пустыми строками, и возвращает их по очереди.</p>
+    <pre><code class="language-python">
+def readmatr(fname):
+    m = []
+    for s in open(fname):
+        if s != "\n":  # строка содержит данные
+            m.append([int(x) for x in s.split()])
+        else:
+            yield m  # выдаём собранную матрицу
+            m = []
+    yield m
+    </code></pre>
+</div>
+
+<div class="infoblock">
+    <a name="classes"></a>
+    <h3 style="text-align: center;">Классы и магические методы в Python</h3>
+    <p>Пример простых классов с методами и перегрузкой операторов.</p>
+    <pre><code class="language-python">
+class Person:
+    def __init__(self, name, age):  # конструктор
+        self.name = name
+        self.age = age
+    def greet(self):  # обычный метод
+        print(f"Привет, меня зовут {self.name}, мне {self.age} лет.")
+
+class Vector:
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+    def __str__(self):  # строковое представление
+        return f"Vector({self.x}, {self.y})"
+    def __add__(self, other):  # сложение векторов
+        return Vector(self.x + other.x, self.y + other.y)
+    def __len__(self):  # длина вектора
+        return int((self.x**2 + self.y**2)**0.5)
+    </code></pre>
+</div>
+
+<script src="../logtable/helper.js"></script>
+<script src="helper.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+
+</body>
+</html>

@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lima Yankee</title>
+    <style>
+        .wrapper-img{    
+			position: relative;
+			max-width: 50px;
+		}
+		.wrapper-img .img-hide{    
+			opacity: 0; 
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;	
+		}
+		.wrapper-img:hover .img-hide{
+			opacity: 1;
+			position: absolute; top: 0; left: 0;  
+			transition: all 0.5s;
+		}
+		.totop {
+		  max-width: 200px;
+		  position: -webkit-sticky;
+		  position: sticky;
+		  bottom: 0;
+		  float: right;
+		  color: white;
+		}
+        a {
+            color:white;
+            font-size: 20px;
+            transition: transform 0.2s ease-in-out;
+			display: inline-block;
+			font-family: "segoe script";
+        }
+        a:hover {
+			transform: scale(1.1);
+			color: rgb(30, 255, 0);
+		}
+        body {
+            color: white;
+        }
+        .hid {
+            display: none; /* Изначально скрыт */
+            padding: 10px;
+            border: 1px solid #ccc;
+            margin-top: 10px;
+        }
+        button {
+            display: flex;
+            margin: 0 auto;
+            font-family: "segoe print";
+            color: rgb(200, 221, 15);
+            background-color: rgba(0, 0, 0, 0);
+            border-width: 0;
+            font-size: 20px;
+            transition: transform 0.3s ease;
+        }
+        button:hover {
+            transform: scale(1.3) rotate(20deg);
+        }
+        div {
+            font-family: "comic sans ms";
+        }
+        .def {
+            color: rgb(138, 190, 182);
+        }
+        .def2 {
+            color: rgb(204, 187, 129);
+        }
+        @keyframes transformAnimation {
+            0% {
+                transform: scale(1) rotate(0deg);
+            }
+            10% { /* Уменьшено до 20% */
+                transform: scale(1.2) rotate(45deg);
+            }
+            20% { /* Уменьшено до 40% */
+                transform: scale(1) rotate(90deg);
+            }
+            30% { /* Уменьшено до 60% */
+                transform: scale(1.2) rotate(135deg);
+            }
+            40% { /* Уменьшено до 80% */
+                transform: scale(1) rotate(180deg);
+            }
+            50% {
+                transform: scale(1) rotate(215deg); /* Конечное состояние */
+            }
+            60% {
+                transform: scale(1) rotate(270deg);
+            }
+            70% { /* Уменьшено до 20% */
+                transform: scale(1.2) rotate(315deg);
+            }
+            80% { /* Уменьшено до 40% */
+                transform: scale(1) rotate(360deg);
+            }
+            90% { /* Уменьшено до 60% */
+                transform: scale(1.2) rotate(360deg);
+            }
+            100% { /* Уменьшено до 80% */
+                transform: scale(1) rotate(360deg);
+            }
+        }
+    </style>
+    
+</head>
+<body bgcolor="black">
+    <a name ="top"></a>
+    <div class = "heed">
+		Помощник - Физика|
+		<a href = "helplist.html">Главная страница</a>| Обратная связь:
+		<a href = "https://t.me/+tzRUzNgaf5liODg6" target="_blank"><img src = "images/telegram.png" style = "max-width: 40px; vertical-align: middle">
+		Telegram</a>
+    </div>
+    <h1 style="font-size: 60px; font-family: impact; text-align: center; color: #00ffb3; animation: transformAnimation 10s ease infinite;">PHYSICS</h1>
+    <h2 style="font-family: gabriola; text-align: center; color: #9dff00;">Нажмите на нужный класс, чтобы раскрыть информацию.</h1>
+
+    <button id="1">7 класс</button>
+    <div id="d1" class="hid">
+        <a href="#1cf">Формулы</a>
+        <ul class="def2">Физика - наука о природе, изучающая:
+            <li>Явления - изменения происходящие с телами и веществами в окружающем мире. </li>
+            <li>Физические явления - любые превращения ве щества или проявления его свойств без изменения его состава. </li>
+            <li>Физическое тело - каждое из окружающих нас тел.</li>
+            <li>Вещества -всë то, из чего состоят физические тела. </li>
+            <li>Материя - всё то, что существует во вселенной независимо от нашего сознания. </li>
+        </ul>
+        <p class="def">Физическая теория - систематизация полученных из эксперимента сведений о природных процессах.</p>
+        <ol class="def2">Этапы получения информации:
+            <li>Наблюдение</li>
+            <li>Опыт </li>
+            <li>Гипотеза </li>
+        </ol>
+        <p class="def">Чтобы измерить какую-то физическую величину, нужно сравнить её с однородной величиной, принятой за единицу. </p>
+        <p class="def">Цена деления прибора - наименьшее расстояние между ближайшими делениями шкалы. </p>
+        <ol class="def2">Чтобы найти цену деления прибора необходимо:
+            <li>Найти 2 ближайших подписанных штриха шкалы. </li>
+            <li>Вычесть из большего значения меньшее и разделить на число делений между ними. </li>
+        </ol>
+        <p class="def">Погрешность измерений - допускаямая в результате измерений неточность.</p>
+        <p class="def">Погрешность измерений равна половине цены деления прибора. </p>
+        <p class="def">А = а ± ∆а<br>
+            (А - измеряемая величина<br>
+            а - результат измерений<br>
+            ∆а - погрешность измерений)</p>
+        <a name="1cf"></a>
+        <button id="2">7 класс</button>
+    </div>
+    <br>
+
+    <button id="3">8 класс</button>
+    <div id="d2" class="hid">
+        Это содержимое div, которое можно показать или скрыть.
+        <button id="4">8 класс</button>
+    </div>
+    <br>
+
+    <button id="5">9 класс</button>
+    <div id="d3" class="hid">
+        Это содержимое div, которое можно показать или скрыть.
+        <button id="6">9 класс</button>
+    </div>
+    <br>
+
+    <script>
+        const n = 6;
+        for(let i = 1; i <= n; i++){
+            let button = document.getElementById(i.toString());
+            let myDiv = document.getElementById("d" + Math.floor((i + 1) / 2).toString());
+        
+            button.addEventListener('click', function(n = n) {
+                if (myDiv.style.display === 'none' || myDiv.style.display === '') {
+                    myDiv.style.display = 'block'; // Показываем div
+                } else {
+                    myDiv.style.display = 'none'; // Скрываем div
+                }
+            });
+        }
+    </script>
+    <div class="totop wrapper-img"><a href = "#top">
+        <img style = "max-width: 50px;" src="images/totop1.png" alt="" />
+        <img style = "max-width: 50px;" class="img-hide" src="images/totop2.png" alt="" />
+    </a></div>
+</body>
+</html>

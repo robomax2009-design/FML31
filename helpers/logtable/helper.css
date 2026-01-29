@@ -1,0 +1,56 @@
+.tabl {
+    background-color: white;
+    color: black;
+    border-collapse: collapse;
+    border: 1px solid black;
+    font-family: 'Ink Free', sans-serif;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.item {
+    background-color: white;
+    border: 1px solid black;
+    text-align: center;
+    transition: background-color 1s ease;
+    color: black;
+}
+
+.correct {
+    background-color: rgb(162, 255, 170);
+}
+.incorrect {
+    background-color: rgb(255, 162, 162);
+}
+.exp {
+    background-color: rgb(162, 202, 255);
+}
+
+.button {
+    background: linear-gradient(45deg,rgba(87, 199, 133, 1) , rgba(237, 221, 83, 1) 100%);
+    width: 80px;
+    height: 25px;
+    transition: width 0.5s ease, height 0.5s ease;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.button:hover {
+    width: 100px;
+    height: 30px;
+}
+.copy {
+    font-family: COMIC SANS MS;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 120px;
+    height: 25px;
+    transition: width 0.3s ease, height 0.3s ease;
+}
+.copy:hover {
+    width: 150px;
+    height: 30px;
+}

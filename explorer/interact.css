@@ -1,0 +1,35 @@
+.head_button {
+    background-color: #00000000;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    color: white;
+    gap: 5px;
+}
+
+.head_button:hover {
+    background-color: rgba(27, 27, 27, 0.452);
+}
+
+.head_button2 {
+    background-color: #00000000;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    width: 30px;
+    color: white;
+    gap: 5px;
+}
+
+.head_button2:hover {
+    background-color: rgba(27, 27, 27, 0.452);
+}

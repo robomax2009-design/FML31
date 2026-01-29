@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+      <title>SOMEL Логическая таблица</title>
+      <meta charset="utf-8">
+	  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="helper.css">
+    </head>
+
+  <body bgcolor="black" style="color: rgb(71, 176, 236);">
+    <h3>Построение логических таблиц</h3>
+    <div style="font-family: COMIC SANS MS;">
+      <p>Правила написания логических формул в символьном формате:</p>
+      <ul>
+        <li>Конъюнкция: A & B; A * B; A ∧ B</li>
+        <li>Дизъюнкция: A | B; A + B; A v B</li>
+        <li>Инверсия: !A; -A; ¬A</li>
+        <li>Импликация: A >> B; A -> B; A => B</li>
+        <li>Эквиваленция: A = B; A <-> B; A <=> B</li>
+		<li>Разделять выражения можно с помощью ; (Несколько формул в одну таблицу)</li>
+      </ul>
+    </div>
+	<p><input type="checkbox" id="subexpression" checked onchange="processInput()"> Показывать промежуточные выражения</p>
+    <input style="width: 70%; height: 25px;" type="text" name="expression" placeholder="Формула" oninput="processInput()">
+    <div style="color: white;" id="output"></div>
+
+
+
+    <h2>Разбор примера кода для построения таблиц (Copywright Фёдор)</h2>
+    <button class="copy" onclick="copyCode()">Скопировать код</button>
+    <pre><code class="language-python" id="code">
+def solve(s:str) -> str: #Рекурсивно решаем выражение
+	if '(' not in s:#Если не содержит скобок
+		#Нужно по приоритетам пройти строку, заменяя связки выражений на их значение
+		s1 = ''
+		n = len(s)
+		i = 0
+		while i < n: # Первый приоритет - инверсия
+			if s[i] == '-':
+				if s[i + 1] in '01':
+					s1 += str(1 - int(s[i + 1]))
+					i += 1
+				else:
+					s1 += s[i]
+			else:
+				s1 += s[i]
+			i += 1
+
+		i = 0
+		s = ''
+		n = len(s1)
+		while i < n: # Второй приоритет - конъюнкция
+			if s1[i] == '*':
+				s = s[:-1] + str(int(s[-1]) * int(s1[i + 1]))
+				i += 1
+			else:
+				s += s1[i]
+			i += 1
+
+		n = len(s)
+		s1 = ''
+		i = 0
+		while i < n: # Третий приоритет - дизъюкнция
+			if s[i] == '+':
+				a = s1[-1]
+				s1 = s1[:-1]
+				if a == '1' or s[i + 1] == '1':
+					s1 += '1'
+				else:
+					s1 += '0'
+				i += 1
+			else:
+				s1 += s[i]
+			i += 1
+
+		n = len(s1)
+		s = ''
+		i = 0
+		while i < n: # Четрвертый приоритет - импликация
+			if s1[i] == '-':
+				if s1[i - 1] in '01': #Проверяем на маске 0- или 1- (итоговый вид A->B)
+					a = s[-1]
+					s = s[:-1]
+					if a == '1' and s1[i + 2] == '0':
+						s += '0'
+					else:
+						s += '1'
+					i += 2
+				else:
+					s += s1[i]
+			else:
+				s += s1[i]
+			i += 1
+
+		s1 = ''
+		n = len(s)
+		i = 0
+		while i < n: # Пятый приоритет - эквиваленция
+			if s[i] == '<': #Проверяем на маске 0< или 1< (итоговый вид A<->B)
+				a = s1[-1]
+				s1 = s1[:-1]
+				if a == s[i + 3]:
+					s1 += '1'
+				else:
+					s1 += '0'
+				i += 3
+			else:
+				s1 += s[i]
+			i += 1
+		return s1
+	else: #Если скобки есть, заменяем их содержимое рекурсивно
+		s1 = ''
+		layer = 0
+		fl = False
+		s2 = ''
+		for ch in s:
+			if not(fl):
+				if ch == '(':
+					fl = True
+					layer += 1
+				else:
+					s1 += ch
+			else:
+				if ch == ')':
+					layer -= 1
+					if layer == 0:
+						s1 += solve(s2)
+						s2 = ''
+						fl = False
+						continue
+				elif ch == '(':
+					layer += 1
+				s2 += ch
+		return solve(s1)
+
+
+def despacito(s:str) -> str: # Это можно заменить на s = s.replace('s', '')
+	res = ''
+	for ch in s:
+		if ch != ' ':
+			res += ch
+	return res
+
+
+def gen(lst:list, n:int): # Генерируем строки для переменных, n - номер строки
+	if len(lst) == n:
+		yield lst
+	else:
+		lst.append('0')
+		for res in gen(lst, n):
+			yield res
+		lst.pop()
+		lst.append('1')
+		for res in gen(lst, n):
+			yield res
+		lst.pop()
+
+
+def solution(s:str) -> None: #Основная программа
+	s = despacito(s)
+	variables = set()
+
+	if s[-1] not in  ' -+*<>()':
+		s += ' '
+	lst = []
+	if s[0] in '+-*<> ()':
+		fl = False
+	else:
+		fl = True
+	v = ''
+	for ch in s:
+		if ch in '+-*<> ()':
+			if not(fl):
+				v += ch
+			else:
+				if v != '0' and v != '1':
+					lst.append((v, True))
+					variables.add(v)
+					v = ch
+					fl = False
+				else:
+					fl = False
+					if len(lst) == 0:
+						v += ch
+					else:
+						v = lst.pop()[0] + v + ch
+		else:
+			if not(fl):
+				lst.append((v, False))
+				v = ch
+				fl = True
+			else:
+				v += ch
+	if v != '':
+		lst.append((v, False))
+	
+	# Выводим результат
+
+	if len(variables) == 0: #Если переменных нет, сразу выводим solve(s)
+		print('F:', solve(s))
+		return
+
+	variables = sorted(variables)
+	maxlen = max([len(v) for v in variables])
+	for v in variables:
+		print(v.rjust(maxlen), end=' ')
+	print('| F')
+
+	n = len(variables)
+	for swap in gen([], n):
+		change = {}
+		for i in range(n):
+			change[variables[i]] = swap[i]
+			print(swap[i].rjust(maxlen), end=' ')
+		s1 = ''
+		for elem in lst:
+			if elem[1]:
+				s1 += change[elem[0]]
+			else:
+				s1 += elem[0]
+		print('|', solve(s1))
+
+
+while True:
+	s = input()
+	solution(s)
+    </code></pre>
+
+    <script src="helper.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+    <!-- Подключение библиотеки подсветки -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+  </body>
+</html>

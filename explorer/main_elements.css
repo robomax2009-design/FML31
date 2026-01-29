@@ -1,0 +1,14 @@
+.header2 {
+    display: flex;
+    gap: 17px;
+    border-bottom:1px solid rgba(116, 116, 116, 0.438);
+    padding: 7px;
+}
+
+.header3 {
+    display: flex;
+    gap: 17px;
+    border-bottom:1px solid rgba(116, 116, 116, 0.438);
+    padding: 3px;
+}
+

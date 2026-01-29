@@ -1,0 +1,88 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Lima Yankee</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		A { 
+			color: #EEE6A3; 
+		}
+		
+		.cc{
+			color: white;
+		}
+		.image-container {
+            overflow: hidden; /* Скрываем части изображения, выходящие за пределы контейнера */
+            display: inline-block; /* Делаем контейнер блочным элементом */
+        }
+
+        .image-container img {
+            transition: transform 0.3s ease; /* Плавный переход при изменении */
+        }
+
+        .image-container:hover img {
+            transform: scale(1.2) rotate(10deg); /* Увеличиваем размер и поворачиваем изображение */
+        }
+		.image-container2 {
+            display: inline-block; /* Делаем контейнер блочным элементом */
+			width: 270px;
+        }
+
+        .image-container2 img {
+            transition: transform 1s cubic-bezier(0.175, 0.885, 0.22, 1.575); /* Плавный переход при изменении */
+			transform: scale(0.8) rotate(-5deg);
+        }
+
+        .image-container2:hover img {
+            transform: scale(1.2) rotate(20deg) translate(0px, -200px); /* Увеличиваем размер и поворачиваем изображение */
+        }
+
+
+		.image-container3 {
+            display: inline-block; /* Делаем контейнер блочным элементом */
+			width: 270px;
+        }
+
+        .image-container3 img {
+            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавный переход при изменении */
+			transform: scale(0.9) rotate(15deg);
+        }
+
+        .image-container3:hover img {
+            transform: scale(1.25) rotate(-35deg) translate(0px, -100px); /* Увеличиваем размер и поворачиваем изображение */
+        }
+
+
+		.image-container4 {
+            display: inline-block; /* Делаем контейнер блочным элементом */
+			width: 270px;
+        }
+
+        .image-container4 img {
+            transition: transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Плавный переход при изменении */
+			transform: scale(0.85) rotate(-15deg);
+        }
+
+        .image-container4:hover img {
+            transform: scale(1.1) rotate(20deg) translate(0px, -150px); /* Увеличиваем размер и поворачиваем изображение */
+        }
+	</style>
+  </head>
+  <body bgcolor="black">
+    <h1 class = "cc">Выберите интересующий вас предмет.</h1>
+	<a href = "index.html">Главная страница</a>
+	<p class = "cc"><a href = "NnaLauncher.html">
+		<div style = "border: solid 1px white; width: 250px;">
+			<div class="image-container" width = 230px><img src = "images/nna.jpg" width = 180px></div><br>
+			<span>
+				TgL - Пиратский лаунчер, облачное хранилище.
+			</span>
+		</div>
+	</a></p>
+	<hr>
+	<div style="margin-top: 150px; display: inline-block;"></div>
+	<a href = "informatics.html"><div class="image-container2"><img src="images/informatics.png" width="300px"></div></a>
+	<a href = "chemistry.html"><div class="image-container3"><img src="images/chemistry.png" width="300px"></div></a>
+	<a href = "physics.html"><div class="image-container4"><img src="images/physics.png" width="300px"></div></a>
+  </body>
+</html>
