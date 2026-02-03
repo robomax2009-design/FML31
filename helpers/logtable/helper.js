@@ -20,7 +20,7 @@ function Create(expression, subex = true) {
     let cache = new Map();
     let variables = new Set();
     let word = "";
-    let sep = "&|!>=();";
+    let sep = "&|!>=();'^";
     
     for (let i = 0; i < expression.length; i++) {
         if (sep.includes(expression[i])) {
@@ -111,7 +111,7 @@ function Create(expression, subex = true) {
             }
             if (matched) return parse(expr.slice(1, -1));
         }
-        let operators = ['>>', '=', '|', '&'];
+        let operators = ['>>', '=', '^^', '|', "'", '&'];
         for (let op of operators) {
             let depth = 0;
             for (let i = expr.length - 1; i >= 0; i--) {
@@ -230,7 +230,7 @@ function Create(expression, subex = true) {
 
     function tokenize(expr) {
         const cleaned = expr.replace(/\s+/g, "");
-        const re = />>|[01]|[A-Za-z_][A-Za-z0-9_]*|\?|\(|\)|&|\||!|=/g;
+        const re = />>|\^\^|'|[01]|[A-Za-z_][A-Za-z0-9_]*|\?|\(|\)|&|\||!|=/g;
         const tokens = [];
         let m;
         while ((m = re.exec(cleaned)) !== null) tokens.push(m[0]);
@@ -257,19 +257,19 @@ function Create(expression, subex = true) {
         }
 
         function parseImpl() {
-            let node = parseOr();
+            let node = parsePierce();
             while (peek() === ">>") {
                 consume(">>");
-                node = { type: ">>", left: node, right: parseOr() };
+                node = { type: ">>", left: node, right: parsePierce() };
             }
             return node;
         }
 
         function parseOr() {
-            let node = parseAnd();
+            let node = parseSheffer();
             while (peek() === "|") {
                 consume("|");
-                node = { type: "|", left: node, right: parseAnd() };
+                node = { type: "|", left: node, right: parseSheffer() };
             }
             return node;
         }
@@ -279,6 +279,24 @@ function Create(expression, subex = true) {
             while (peek() === "&") {
                 consume("&");
                 node = { type: "&", left: node, right: parseUnary() };
+            }
+            return node;
+        }
+
+        function parseSheffer() {
+            let node = parseAnd();
+            while (peek() === "'") {
+                consume("'");
+                node = { type: "'", left: node, right: parseAnd() };
+            }
+            return node;
+        }
+
+        function parsePierce() {
+            let node = parseOr();
+            while (peek() === "^^") {
+                consume("^^");
+                node = { type: "^^", left: node, right: parseOr() };
             }
             return node;
         }
@@ -338,6 +356,16 @@ function Create(expression, subex = true) {
                 const a = evalAst(node.left, placeholderValues, idxRef, evalExprFn, visited);
                 const b = evalAst(node.right, placeholderValues, idxRef, evalExprFn, visited);
                 return a === b;
+            }
+            case "'": {
+                const a = evalAst(node.left, placeholderValues, idxRef, evalExprFn, visited);
+                const b = evalAst(node.right, placeholderValues, idxRef, evalExprFn, visited);
+                return !(a && b);
+            }
+            case "^^": {
+                const a = evalAst(node.left, placeholderValues, idxRef, evalExprFn, visited);
+                const b = evalAst(node.right, placeholderValues, idxRef, evalExprFn, visited);
+                return !(a || b);
             }
             case "const":
                 return node.value;
