@@ -1,0 +1,16 @@
+.league {
+    width: 100%;
+    background-image: url('../img/frostpunk.png');
+    background-size: cover;
+    background-position: 50% 10%;
+    filter: brightness(0.5);
+    filter: opacity(0.8);
+    transition: background-position 10s cubic-bezier(.03,.7,.32,1), filter 3s cubic-bezier(.03,.7,.32,1);
+    animation: none;
+    z-index: -1;
+}
+
+.league:hover {
+    background-position: 50% 9%;
+    filter: brightness(0.8);
+}

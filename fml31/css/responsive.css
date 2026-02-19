@@ -1,0 +1,92 @@
+@media (max-width: 768px) {
+    .header {
+        display: flex;
+        position: relative;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px 0;
+        height: auto;
+    }
+    
+    .header_menu {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .header_element {
+        font-size: medium;
+        width: 90%;
+        text-align: center;
+        margin: 5px 0;
+        box-sizing: border-box;
+    }
+    
+    .header_profile {
+        margin-left: 0;
+    }
+    
+    .card_name {
+        margin-top: 10px;
+    }
+    
+    .card_full:not(.news) {
+        transform: scale(0.7);
+        font-size: x-small;
+        margin: -15px;
+        margin-top: -30px;
+        border-radius: 5px;
+        box-shadow: 
+            4px 4px 12px rgba(0, 0, 0, 0.3),
+            -2px -2px 6px rgba(255, 255, 255, 0.05),
+            0 0 0 1px rgba(0, 0, 0, 0.1),
+            inset -3px -3px 8px #041320;
+    }
+    
+    .news {
+        font-size: x-small;
+    }
+    
+    .card_full.avatar {
+        width: 70px;
+        height: 100%;
+        margin-left: -1%;
+    }
+    
+    .avatar ul {
+        margin: 0;
+        padding: 0;
+        margin-left: 20%;
+    }
+    
+    .content_box {
+        padding: 10px;
+        padding-left: 20px;
+        box-shadow: 
+            inset 2px 2px 5px rgba(0, 0, 0, 0.4),
+            inset -2px -2px 5px rgba(255, 255, 255, 0.05);
+        box-sizing: border-box;
+    }
+    
+    .content_box:hover {
+        padding-left: 20px;
+        box-shadow: 
+            inset 3px 3px 7px rgba(0, 0, 0, 0.5),
+            inset -3px -3px 7px rgba(255, 255, 255, 0.08);
+    }
+    
+    .divider_box {
+        box-shadow: 
+            3px 3px 8px rgba(0, 0, 0, 0.3),
+            -1px -1px 4px rgba(255, 255, 255, 0.05),
+            0 0 0 1px rgba(0, 0, 0, 0.1);
+    }
+    
+    .divider_box:hover {
+        box-shadow: 
+            4px 4px 10px rgba(0, 0, 0, 0.4),
+            -2px -2px 6px rgba(255, 255, 255, 0.08),
+            0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
+}
