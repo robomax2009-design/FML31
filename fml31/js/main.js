@@ -91,53 +91,6 @@ fetch(filePath)
     console.error(error);
   });
 
-// Частицы (из visual.js)
-const count = 30;
-const particles = [];
-
-for (let i = 0; i < count; i++) {
-  createParticle();
-}
-
-function createParticle() {
-  const el = document.createElement("div");
-  el.className = "particle";
-  document.body.appendChild(el);
-
-  let x = Math.random() * window.innerWidth;
-  let y = Math.random() * window.innerHeight + window.scrollY;
-  let vx = (Math.random() - 0.5) * 4;
-  let vy = (Math.random() - 0.5) * 4;
-
-  const particle = { el, x, y, vx, vy };
-  particles.push(particle);
-
-  function move() {
-    x += vx;
-    y += vy;
-
-    const minX = 0;
-    const maxX = window.innerWidth - 20;
-    const minY = window.scrollY;
-    const maxY = window.scrollY + window.innerHeight - 20;
-
-    if (x < minX) { x = minX; vx *= -1; }
-    if (x > maxX) { x = maxX; vx *= -1; }
-    if (y < minY) { y = minY; vy *= -1; }
-    if (y > maxY) { y = maxY; vy *= -1; }
-
-    el.style.left = x + "px";
-    el.style.top = y + "px";
-
-    particle.x = x;
-    particle.y = y;
-
-    requestAnimationFrame(move);
-  }
-
-  move();
-}
-
 window.addEventListener("resize", () => {});
 window.addEventListener("scroll", () => {});
 

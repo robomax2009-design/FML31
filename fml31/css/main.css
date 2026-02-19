@@ -280,17 +280,6 @@ html, body {
     transform: translateZ(15px);
 }
 
-.particle {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: rgb(33, 19, 228);
-    border-radius: 50%;
-    pointer-events: none;
-    box-shadow: 0 0 10px cyan;
-    z-index: -10;
-}
-
 @media (max-width: 768px) { 
     .content_box {
         animation: none;
@@ -467,8 +456,5 @@ html, body {
 @media (max-width: 768px) { 
     .header_profile {
         margin-left: 0;
-    }
-    .particle {
-        display: none !important;
     }
 }
