@@ -1,0 +1,403 @@
+@import "https://mxmst.ru/fonts/mont_lato.css";
+
+:root {
+  font-size: 17px;
+  --border-color: #ddd;
+}
+
+nav {
+  color:rgba(0, 0, 0, 0);
+}
+
+.main_link {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 255, 255, 0.219);
+    padding: 10px;
+    border-radius: 20px;
+    border: rgba(255, 255, 255, 0.397) 1px solid;
+    box-shadow: 5px 5px 15px rgba(136, 136, 136, 0.411),
+        -5px -5px 15px rgba(136, 136, 136, 0.178) inset;
+    transition: 0.5s;
+}
+.main_link:hover {
+    color: rgb(43, 160, 7);
+    background-color: rgba(0, 255, 255, 0.295);
+    padding: 10px;
+    border-radius: 20px;
+    border: rgba(255, 255, 255, 0.658) 1px solid;
+    box-shadow: 5px 5px 5px rgba(136, 136, 136, 0.411),
+        -5px -5px 15px rgba(136, 136, 136, 0.178) inset;
+    transition: 0.5s;
+    padding-top: 4px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Lato, Montserrat, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: Montserrat, Lato, sans-serif;
+}
+
+a {
+  color: #0b75cc;
+  text-decoration: none;
+  transition: .2s;
+}
+
+a.disabled {
+  pointer-events: none;
+}
+
+a:hover {
+  color: #58a5e5;
+}
+
+body {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 2rem 0 min(5vw, 2rem);
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+main {
+  width: 90vw;
+  max-width: 400px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+main.card {
+  max-width: 600px;
+}
+
+
+.main-header {
+  text-align: center;
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+}
+
+.main-links {
+  border: 1px solid var(--border-color);
+  width: 100%;
+  -webkit-border-radius: .6rem;
+  -moz-border-radius: .6rem;
+  border-radius: .6rem;
+  border-spacing: 0;
+  margin-top: 2rem;
+}
+
+.main-links td {
+  border-top: 1px solid var(--border-color);
+}
+
+.main-links th {
+  background-color: #f8f8f8;
+  padding: .6rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: Montserrat, sans-serif;
+  border-top-right-radius: .6rem;
+  border-top-left-radius: .6rem;
+}
+
+.main-links td {
+  display: flex;
+  align-items: center;
+}
+
+.main-links td :nth-child(2) {
+  margin-right: .8rem;
+}
+
+.comment {
+  color: #bbb;
+}
+
+
+.main-links td a {
+  width: 100%;
+  height: 100%;
+  display: block;
+  padding: .7rem .8rem .8rem;
+}
+
+footer {
+  margin-top: auto;
+  padding: 1rem 5vw 0;
+  text-align: center;
+}
+
+footer p {
+  color: #bbb;
+  font-size: .9rem;
+}
+
+footer a {
+  color: #bbb;
+  text-decoration: underline;
+}
+
+footer a:hover {
+  color: #888;
+}
+
+.left {
+  text-align: left;
+}
+
+.center {
+  text-align: center;
+}
+
+.right {
+  text-align: right;
+}
+
+nav {
+  display: flex;
+  gap: .4rem;
+  margin: 2rem auto 1rem;
+}
+
+.main-card-header {
+  font-size: 1.6rem;
+}
+
+.card p {
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.card img {
+  margin: 1rem auto 2rem;
+  max-height: 250px;
+  max-width: 70%;
+}
+
+.card h1, .card h2, .card h3 {
+  text-align: center;
+  width: 90%;
+  margin: 0 auto;
+}
+
+.card h2 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  align-items: start;
+}
+
+.card span.accent {
+  font-family: Montserrat, Lato, sans-serif;
+  font-weight: 600;
+  margin-right: .3rem;
+}
+
+footer > iframe {
+  margin-top: .8rem;
+  opacity: .4 !important;
+  transition: .2s opacity;
+}
+
+footer > iframe:hover {
+  opacity: 1 !important;
+}
+
+.background {
+  position: absolute;
+  height: 100vh;
+  width: 100vw;
+  left: 0;
+  top: 0;
+  background-color: #ffffffdd;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  transition: .5s ease-in-out;
+}
+
+.unavailable {
+  width: 90vw;
+  max-width: 400px;
+  text-align: center;
+  background-color: #f8f8f8;
+  padding: 1.4rem 1rem;
+  -webkit-border-radius: 1.2rem;
+  -moz-border-radius: 1.2rem;
+  border-radius: 1.2rem;
+  gap: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.cross {
+  position: absolute;
+  z-index: 1000;
+  right: 1rem;
+  top: -.1rem;
+  font-size: 3rem;
+  user-select: none;
+  cursor: pointer;
+}
+
+.unavailable h4 {
+  font-size: 1.4rem;
+}
+
+.err-body {
+  justify-content: center;
+}
+
+.main-err {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.main-err p {
+  line-height: 1.3;
+}
+
+.err {
+  font-size: min(40vmin, 12rem);
+  font-weight: 400;
+  text-decoration: underline;
+  text-decoration-thickness: .5rem;
+  text-underline-offset: 2rem;
+  text-decoration-style: dashed;
+  margin-bottom: 1rem;
+}
+
+table:not(.main-links) td {
+  border: 1px solid var(--border-color);
+  padding: .6rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+table:not(.main-links) {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.table-wrapper {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.bug-report {
+  color: #888888;
+  font-size: .8rem;
+  text-align: center;
+  width: fit-content;
+  max-width: 90vw;
+  margin: 1rem auto 0;
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    color: #ddd;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255,255,255,.2) 1px, transparent 2px),
+      radial-gradient(circle at 70% 80%, rgba(255,255,255,.15) 1px, transparent 2px),
+      radial-gradient(circle at 40% 60%, rgba(255,255,255,.1) 1px, transparent 2px),
+      radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.1) 1px, transparent 2px),
+      #161616;
+    background-size: 100px 100px;
+  }
+
+  :root {
+    --border-color: #222;
+  }
+
+  img {
+    filter: invert(93.5%);
+  }
+
+  .main-links th {
+    background-color: #222;
+  }
+
+  a {
+    color: #58a5e5;
+  }
+
+  a:hover {
+    color: #0b75cc;
+  }
+
+  .background {
+    background-color: #111111dd;
+  }
+
+  .unavailable {
+    background-color: #181818;
+  }
+}
+
+head {
+  display: none;
+}
+
+@media print {
+  body {
+    background-color: #fff;
+    color: #000;
+  }
+
+  :root {
+    --border-color: #000;
+  }
+
+  img {
+    filter: invert(0);
+  }
+
+  .main-links th {
+    background-color: #ffffff;
+  }
+
+  a {
+    color: #000;
+  }
+
+  a:hover {
+    color: #000;
+  }
+
+  .background, .bug-report, nav {
+    display: none;
+  }
+
+  .unavailable {
+    background-color: #181818;
+  }
+
+  .main-header {
+    margin-bottom: 2rem;
+  }
+}
+
+
+img {
+  border: 1px dotted rgb(0, 0, 0);
+  border-radius: 10px;
+}

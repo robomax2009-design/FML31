@@ -37,7 +37,32 @@
         </div>
     </div>
 
-    <h4 style="width: 100%; text-align: center; font-family: century gothic; margin: 10px;">Оставь свой след.</h4>
+    <h4 id="dynamicMessage" style="width: 100%; text-align: center; font-family: 'century gothic', sans-serif; margin: 10px; transition: all 0.3s ease;">
+        Оставь свой след.
+    </h4>
+
+    <script>
+    (function() {
+        var today = new Date();
+        var month = today.getMonth() + 1;
+        var day = today.getDate();
+        var messageElement = document.getElementById('dynamicMessage');
+        var header = document.getElementsByClassName('header')[0];
+        var body = document.body;
+        
+        if (messageElement) {
+            if (month === 3 && day >= 6 && day <= 11) {
+                messageElement.textContent = 'Жіночки, с 8 марта!';
+                messageElement.style.color = '#c41055';
+                messageElement.style.fontSize = 'xxx-large';
+                messageElement.style.fontWeight = 'bold';
+                messageElement.style.fontFamily = 'DwarvenStonecraftCyr';
+                body.style.backgroundColor = "#3b0217";
+                header.style.backgroundColor = "#7a012e";
+            }
+        }
+    })();
+    </script>
     
     <!-- НОВОСТИ -->
     <div class="divider_box">
@@ -60,7 +85,7 @@
     <div class="content_box">
         <div class="cardholder">
             <!-- Python & Мат. логика -->
-            <div class="card_full">
+            <div class="card_full gold">
                 <a href="../helpers/mathpython/choose/index.html">
                     <div class="card_container">
                         <img class="lighter" src="img/lighter.png">
@@ -71,8 +96,8 @@
             </div>
             
             <!-- Билеты по геометрии -->
-            <div class="card_full">
-                <a href="http://mxmst.beget.tech/bilet/">
+            <div class="card_full gold">
+                <a href="../helpers/geometry/index.html">
                     <div class="card_container">
                         <img class="lighter" src="img/lighter.png">
                         <img src="img/geom.jpg" style="height: 100%; margin-left: -79%;" class="icon">
@@ -80,15 +105,15 @@
                     <p class="card_name">БИЛЕТЫ ПО ГЕОМЕТРИИ</p>
                 </a>
             </div>
-            
-            <!-- Геометрия для 10 класса -->
+
+            <!-- Химия -->
             <div class="card_full">
-                <a href="https://mxmst.ru/lectorium">
+                <a href="../helpers/chemistry/index.html">
                     <div class="card_container">
                         <img class="lighter" src="img/lighter.png">
-                        <img src="img/mxmst.jpg" style="height: 100%;" class="icon">
+                        <img src="img/chem.jpg" style="height: 100%; margin-left: -79%;" class="icon">
                     </div>
-                    <p class="card_name">ГЕОМЕТРИЯ ДЛЯ 10 КЛАССА</p>
+                    <p class="card_name">ХИМИЯ</p>
                 </a>
             </div>
             
@@ -111,17 +136,6 @@
                         <img src="img/physics.jpg" style="height: 100%; margin-left: -68%;" class="icon">
                     </div>
                     <p class="card_name">ФИЗИКА</p>
-                </a>
-            </div>
-            
-            <!-- Химия -->
-            <div class="card_full">
-                <a href="../helpers/chemistry/index.html">
-                    <div class="card_container">
-                        <img class="lighter" src="img/lighter.png">
-                        <img src="img/chem.jpg" style="height: 100%; margin-left: -79%;" class="icon">
-                    </div>
-                    <p class="card_name">ХИМИЯ</p>
                 </a>
             </div>
             

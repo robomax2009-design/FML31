@@ -101,6 +101,7 @@ if (typeof jwtInfo !== 'undefined' && jwtInfo.authenticated) {
     async function loadHeaderProfile(pubId) {
         try {
             const response = await fetch(`http://k90908k8.beget.tech/profile/profile.php?action=get_profile&pub_id=${pubId}`, { cache: 'no-store' });
+            
             const data = await response.json();
 
             if (data.success) {

@@ -44,6 +44,18 @@ html, body {
     background-color: #1872c556;
     transform:translateY(5px);
 }
+.gold {
+    background-color: rgba(184, 187, 7, 0.842);
+}
+.gold:hover {
+    background-color: rgba(251, 255, 0, 0.178);
+}
+.gold a {
+    color: #000000;
+}
+.gold a:hover {
+    color: #727272;
+}
 .card_name {
     text-align: center;
 }
@@ -200,48 +212,8 @@ html, body {
         radial-gradient(circle at 40% 60%, rgba(255,255,255,.1) 1px, transparent 2px),
         radial-gradient(ellipse at 50% 50%, rgba(255,255,255,.1) 1px, transparent 2px),
         #05192c6c;
-    animation: 
-        noiseMove 8s linear infinite,
-        pulseGlow 3s ease-in-out infinite;
     background-size: 50px 50px;
     transition: background-color 0.3s ease;
-}
-
-@keyframes noiseMove {
-  from {
-    background-position: 0 0;
-  }
-  to {
-    background-position: 50px 50px;
-  }
-}
-@keyframes pulseGlow {
-  0%{
-    transform: translateZ(-10px);
-    filter: hue-rotate(0deg);
-    box-shadow:
-      inset 3px 3px 8px rgba(0, 0, 0, 0.4),
-      inset -3px -3px 8px rgba(255, 255, 255, 0.05),
-      0 0 5px rgba(0, 120, 255, 0.2);
-  }
-
-  50% {
-    transform: translateZ(10px);
-    filter: hue-rotate(20deg);
-    box-shadow:
-      inset 6px 6px 14px rgba(0, 0, 0, 0.5),
-      inset -4px -4px 10px rgba(255, 255, 255, 0.1),
-      0 0 20px rgba(0, 200, 255, 0.5);
-  }
-
-  100% {
-    transform: translateZ(-10px);
-    filter: hue-rotate(0deg);
-    box-shadow:
-      inset 3px 3px 8px rgba(0, 0, 0, 0.4),
-      inset -3px -3px 8px rgba(255, 255, 255, 0.05),
-      0 0 5px rgba(0, 120, 255, 0.2);
-  }
 }
 
 

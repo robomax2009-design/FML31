@@ -1,0 +1,41 @@
+body {
+    background-color: rgb(17, 17, 17);
+    color: white;
+    font-family: "century gothic", "franklin gothic medium";
+    background-image: radial-gradient(rgba(154, 255, 247, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+}
+
+.mainsheet {
+    background-color: rgba(154, 255, 247, 0.103);
+    width: 80%;
+    margin-left: 10%;
+    border-radius: 20px;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: x-large;
+}
+
+.button {
+    background-color: rgba(0, 225, 255, 0.103);
+    width: fit-content;
+    padding: 8px 16px;
+    border-radius: 10px;
+    color:beige;
+    transition: 0.5s cubic-bezier(.66,.39,.21,.67);
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20px;
+}
+
+.button:last-child {
+    margin-bottom: 0;
+    margin-right: 0;
+}
+
+.button:hover {
+    background-color: rgba(0, 225, 255, 0.247);
+    padding: 8px 32px;
+}
