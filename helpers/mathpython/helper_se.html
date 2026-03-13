@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="helper.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOMEL State Exam</title>
+</head>
+<body>
+
+
+
+
+<a name="info_value"></a>
+
+<div class="infoblock2">
+  <h3>Количество информации</h3>
+  <ul>
+    <li>1бит - минимальная единица информации.</li>
+    <li>1Байт - 8 бит</li>
+    <li>1 КБайт = 2<sup>10</sup> Байт = 2<sup>13</sup> Бит</li>
+    <li>1 МБайт = 1 КБайт<sup>10</sup> = 2<sup>20</sup> Байт = 2<sup>23</sup> Бит</li>
+    <li>1 ГБайт = 1 МБайт<sup>10</sup> = 2<sup>30</sup> Байт = 2<sup>33</sup> Бит</li>
+    <li>1 ТБайт = 1 ГБайт<sup>10</sup> = 2<sup>40</sup> Байт = 2<sup>43</sup> Бит</li>
+  </ul>
+
+  <p>Подходы к измерению информации:</p>
+  <ol>
+    <li>Содержательный</li>
+        <p>Информация должна быть понятной и новой</p>
+        <p></p>2<sup>i - 1</sup> < N <= 2<sup>i</sup>; i - целое количество информации в битах<br>
+        N - количество равновероятных событий</p>
+    <li>Алфавитный</li>
+        <p>Когда у нас есть алфавит, и нужно посчитать минимальное количество битов для сохранения текста в нём</p>
+        <p>V = ki; 2<sup>i-1</sup> < N <= 2<sup>i</sup><br>
+        i - целое количество битов, N - Мощность алфавита (количество символов в нём)</p>
+    <li>Вероятностный</li>
+        <p>p = R<sub>удачных вариантов</sub>/N</p>
+        <p>2<sup>i - 1</sup> < 1/p <= 2<sup>i</sup></p>
+        i - целое количество информации
+  </ol>
+  
+</div>
+
+
+<script src="../logtable/helper.js"></script>
+<script src="helper.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>

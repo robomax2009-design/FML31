@@ -46,6 +46,7 @@ html, body {
 }
 .gold {
     background-color: rgba(184, 187, 7, 0.842);
+    
 }
 .gold:hover {
     background-color: rgba(251, 255, 0, 0.178);
