@@ -1,0 +1,33 @@
+.somel-fly {
+    position: fixed;
+    top: 50%;
+    font-size: 120px;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff5500, 0 0 90px #ff0000;
+    z-index: 999999;
+    font-family: 'Cascadia Mono', monospace;
+    white-space: nowrap;
+    transform: translateY(-50%);
+    transition: all 0.1s ease;
+    letter-spacing: 10px;
+}
+
+/* Эффект мерцания */
+@keyframes glow {
+    0% { text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff5500; }
+    50% { text-shadow: 0 0 50px #ffff00, 0 0 90px #ffaa00, 0 0 120px #ff5500; }
+    100% { text-shadow: 0 0 30px #ffaa00, 0 0 60px #ff5500; }
+}
+
+/* Эффект вращения */
+@keyframes spin {
+    0% { transform: translateY(-50%) rotate(0deg); }
+    100% { transform: translateY(-50%) rotate(360deg); }
+}
+
+/* Эффект прыгающих букв */
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
