@@ -1,0 +1,133 @@
+body {
+    background-color: black;
+    color: white;
+    font-family: "century gothic", "franklin gothic medium";
+    background-image: radial-gradient(rgba(174, 255, 154, 0.288) 1px, transparent 1px);
+    background-size: 20px 20px;
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+}
+
+.candle {
+    width: 5%;
+    transition: 3s;
+    border-radius: 10px;
+}
+
+.wick {
+    transition: 2s;
+}
+
+h3 {
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.35);
+    display: inline-table;
+    padding: 10px;
+}
+
+table {
+    font-size: 13px;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 20px;
+    background: rgba(29, 29, 29, 0.5);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.35);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    width: 100%;
+    table-layout: fixed;
+}
+
+th, td {
+    padding: 10px 20px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    text-align: center;
+    transition: background 0.3s ease;
+    white-space: normal;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    max-width: 200px;
+}
+
+th:hover {
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.infoblock {
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 20px;
+    width: 90%;
+    padding: 2%;
+    margin: 3%;
+    backdrop-filter: blur(0.5px);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+}
+
+.header {
+    text-align: center;
+    font-family: consolas, monospace;
+    font-size: xxx-large;
+    color: #2c3e50;
+    transition: all 0.5s ease;
+    opacity: 0.5;
+    text-shadow: 0 0 0 rgba(255, 200, 100, 0);
+}
+
+.header.visible {
+    opacity: 1;
+    color: #ffffff;
+    text-shadow: 0 0 15px #ffffff, 0 0 5px #ffffff;
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+    
+    .infoblock {
+        width: 95%;
+        padding: 3%;
+        margin: 2%;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+    
+    table {
+        width: 100%;
+        min-width: 700px;
+        table-layout: fixed;
+    }
+    
+    th, td {
+        padding: 8px 12px;
+        white-space: normal;
+        word-wrap: break-word;
+        word-break: break-word;
+        overflow-wrap: break-word;
+        max-width: 150px;
+    }
+    
+    h3 {
+        font-size: 16px;
+        padding: 8px;
+    }
+}
+
+@media (max-width: 480px) {
+    table {
+        min-width: 600px;
+    }
+    
+    th, td {
+        padding: 6px 10px;
+        max-width: 120px;
+        font-size: 11px;
+    }
+    
+    .header {
+        font-size: xx-large;
+    }
+}
