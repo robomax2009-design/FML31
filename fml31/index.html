@@ -43,28 +43,7 @@
         Оставь свой след.
     </h4>
 
-    <script>
-    (function() {
-        var today = new Date();
-        var month = today.getMonth() + 1;
-        var day = today.getDate();
-        var messageElement = document.getElementById('dynamicMessage');
-        var header = document.getElementsByClassName('header')[0];
-        var body = document.body;
-        
-        if (messageElement) {
-            if (month === 3 && day >= 6 && day <= 11) {
-                messageElement.textContent = 'Жіночки, с 8 марта!';
-                messageElement.style.color = '#c41055';
-                messageElement.style.fontSize = 'xxx-large';
-                messageElement.style.fontWeight = 'bold';
-                messageElement.style.fontFamily = 'DwarvenStonecraftCyr';
-                body.style.backgroundColor = "#3b0217";
-                header.style.backgroundColor = "#7a012e";
-            }
-        }
-    })();
-    </script>
+    <script src="js/events.js"></script>
     
     <!-- НОВОСТИ -->
     <div class="divider_box">
