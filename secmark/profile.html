@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SOMEL - вторичный рынок</title>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div>
+            <h1>Вторичный рынок - Товары пользователя</h1>
+            <div id="mainlist" class="mainlist">
+                <div class="loading">Загрузка товаров...</div>
+            </div>
+        </div>
+        
+        <script src="get_product.js"></script>
+        <script>
+            function escapeHtml(text) {
+                if (!text) return '';
+                const div = document.createElement('div');
+                div.textContent = String(text);
+                return div.innerHTML;
+            }
+
+            function linkifyText(text) {
+                if (!text || text === 'None' || text === null) return 'Нет информации';
+                
+                let safeText = escapeHtml(String(text));
+                const parts = [];
+                let lastIndex = 0;
+                const urlPattern = /(https?:\/\/[^\s<>\"]+)/gi;
+                let match;
+                
+                while ((match = urlPattern.exec(safeText)) !== null) {
+                    if (match.index > lastIndex) {
+                        parts.push(safeText.substring(lastIndex, match.index));
+                    }
+                    
+                    const url = match[0];
+                    parts.push(`<a href="${url}" target="_blank" rel="noopener noreferrer" class="message-link">${url}</a>`);
+                    
+                    lastIndex = match.index + url.length;
+                }
+                
+                if (lastIndex < safeText.length) {
+                    parts.push(safeText.substring(lastIndex));
+                }
+                
+                if (parts.length === 0) {
+                    return safeText;
+                }
+                
+                return parts.join('');
+            }
+
+            function getProductIcon(icon) {
+                if (icon && icon !== 'None' && icon !== null) {
+                    return `<img src="${escapeHtml(icon)}" alt="иконка товара" style="width: 60px; height: 60px; border-radius: 10px;" onerror="this.src=''; this.style.display='none'; this.parentElement.innerHTML='📦';">`;
+                }
+                return '📦';
+            }
+
+            function formatPrice(price) {
+                if (!price || price === 'None' || price === null) return 'Цена не указана';
+                return `Цена: ${escapeHtml(String(price))}`;
+            }
+
+            function formatDescription(description) {
+                if (!description || description === 'None' || description === null) return 'Нет описания';
+                let text = escapeHtml(String(description));
+                if (text.length > 300) {
+                    text = text.substring(0, 300) + '...';
+                }
+                text = text.replace(/\n/g, '<br>');
+                return text;
+            }
+
+            function formatBackcom(backcom) {
+                let result = linkifyText(backcom);
+                result = result.replace(/\n/g, '<br>');
+                return result;
+            }
+
+            function getProductTypeClass(type) {
+                const types = {
+                    'product': '#4CAF50',
+                    'service': '#2196F3',
+                    'vacancy': '#FF9800'
+                };
+                return types[type] || '#757575';
+            }
+
+            function getProductTypeName(type) {
+                const typeNames = {
+                    'product': 'Товар',
+                    'service': 'Услуга',
+                    'vacancy': 'Вакансия'
+                };
+                return typeNames[type] || type || 'Общее';
+            }
+
+            function createProductCard(key, product) {
+                const safeKey = escapeHtml(String(key));
+                const safeName = escapeHtml(product.name || 'Без названия');
+                
+                return `
+                    <div class="product-card" data-id="${safeKey}">
+                        <div class="product-icon">
+                            ${getProductIcon(product.icon)}
+                        </div>
+                        <strong>${safeName}</strong>
+                        <div class="product-price">
+                            ${formatPrice(product.price)}
+                        </div>
+                        <div class="product-description">
+                            <p>${formatDescription(product.description)}</p>
+                        </div>
+                        ${product.special && product.special.tags && product.special.tags.length > 0 ? `
+                            <div class="product-tags">
+                                ${product.special.tags.map(tag => `<span class="tag">${escapeHtml(tag)}</span>`).join('')}
+                            </div>
+                        ` : ''}
+                        <div class="product-backcom">
+                            <strong>Связь:</strong><br>
+                            ${formatBackcom(product.backcom)}
+                        </div>
+                        <div class="product-type" style="background: ${getProductTypeClass(product.type)}">
+                            ${getProductTypeName(product.type)}
+                        </div>
+                    </div>
+                `;
+            }
+
+            function renderProducts(productsDict) {
+                const container = document.getElementById('mainlist');
+                
+                if (!productsDict || Object.keys(productsDict).length === 0) {
+                    container.innerHTML = `
+                        <div class="empty-state">
+                            <p>У пользователя пока нет товаров!</p>
+                        </div>
+                    `;
+                    return;
+                }
+
+                const productsHTML = `
+                    <div class="products-grid">
+                        ${Object.entries(productsDict).map(([key, product]) => createProductCard(key, product)).join('')}
+                    </div>
+                `;
+                
+                container.innerHTML = productsHTML;
+            }
+
+            const params = new URLSearchParams(window.location.search);
+            let ids = [];
+            let current_data = {};
+
+            getProfileById(params.get('pub_id')).then(profile => {
+                ids = profile.ids;
+                console.log('IDs:', ids);
+                render(ids);
+            }).catch(error => {
+                console.error('Ошибка загрузки профиля:', error);
+                document.getElementById('mainlist').innerHTML = `
+                    <div class="empty-state">
+                        <p>Ошибка загрузки профиля пользователя</p>
+                    </div>
+                `;
+            });
+
+            async function render(ids) {
+                try {
+                    current_data = await loadProductsByProfile(ids);
+                    console.log('Products data:', current_data);
+                    renderProducts(current_data);
+                } catch (error) {
+                    console.error('Ошибка загрузки товаров:', error);
+                    document.getElementById('mainlist').innerHTML = `
+                        <div class="empty-state">
+                            <p>Ошибка загрузки товаров</p>
+                        </div>
+                    `;
+                }
+            }
+        </script>
+    </body>
+</html>
