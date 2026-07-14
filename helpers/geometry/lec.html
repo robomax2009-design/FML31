@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="../../fml31/files/icon.ico" type="image/x-icon">
+    <title>SOMEL - геометрия</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <h1 style="width: 100%; text-align: center;">Лекториум</h1>
+    <h2 style="width: 100%; text-align: center;">10 класс</h2>
+    <div onclick="window.location.href='index.html';" class="button" style="font-size: x-large; background-color: #1a8a8aab;">Выбрать класс</div>
+    <div class="mainsheet" style="font-size: larger;">
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=0';" class="button">Список вопросов к экзамену по геометрии</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=1';" class="button">Тема 1. Аксиомы стереометрии</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=2';" class="button">Тема 2. Следствия из аксиом. Способы задания плоскости</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=3';" class="button">Тема 3. Взаимное расположения прямых в пространстве</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=4';" class="button">Тема 4. Угол между прямыми в пространстве</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=5';" class="button">Тема 5. Параллельность прямой и плоскости</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=6';" class="button">Тема 6. Перпендикулярность прямой и плоскости</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=7';" class="button">Тема 7. Перпендикуляр и наклонная к плоскости. Теорема о трех перпендикулярах</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=8';" class="button">Тема 8. Параллельность плоскостей</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=9';" class="button">Тема 9. Двугранный угол. Угол между плоскостями</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=10';" class="button">Тема 10. Перпендикулярность плоскостей</div>
+        <div onclick="window.location.href='lec.html?grade=10&subject=geom&number=12';" class="button">Тема 12. Многогранный угол</div>
+    </div>
+    <div id="page" style="margin-top: 30px;"></div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const grade = urlParams.get('grade');
+            const subject = urlParams.get('subject') || 'geom';
+            const number = urlParams.get('number');
+
+            const pageElement = document.getElementById('page');
+
+            if (!pageElement) return;
+
+            if (!grade || !number) {
+                pageElement.innerHTML = '';
+                return;
+            }
+
+            // Показываем загрузку
+            pageElement.innerHTML = `
+                <div style="text-align: center; padding: 20px;">
+                    <p style="color: #aaa;">Загрузка лекции...</p>
+                </div>
+            `;
+
+            // Используем proxy_lec.php
+            const proxyUrl = `proxy_lec.php?grade=${grade}&subject=${subject}&number=${number}`;
+
+            fetch(proxyUrl)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error(`HTTP ${response.status}`);
+                    }
+                    return response.text();
+                })
+                .then(htmlContent => {
+                    // Проверяем, не вернулся ли JSON с ошибкой
+                    if (htmlContent.trim().startsWith('{') && htmlContent.includes('"error"')) {
+                        try {
+                            const errorData = JSON.parse(htmlContent);
+                            throw new Error(errorData.error || 'Неизвестная ошибка');
+                        } catch(e) {
+                            throw new Error('Ошибка загрузки контента');
+                        }
+                    }
+                    
+                    // Извлекаем нужные части
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(htmlContent, 'text/html');
+
+                    // Получаем заголовок
+                    const headerEl = doc.querySelector('#lectionHeader');
+                    const title = headerEl ? headerEl.textContent.trim() : `Тема ${number}`;
+
+                    // Получаем контент
+                    let contentEl = doc.querySelector('.lection-content');
+                    let contentHTML = '';
+                    
+                    if (contentEl) {
+                        contentHTML = contentEl.innerHTML;
+                    } else {
+                        // Пробуем найти main
+                        const mainEl = doc.querySelector('main');
+                        if (mainEl) {
+                            // Убираем aside
+                            const aside = mainEl.querySelector('aside');
+                            if (aside) aside.remove();
+                            contentHTML = mainEl.innerHTML;
+                        }
+                    }
+
+                    if (!contentHTML || contentHTML.trim().length < 10) {
+                        // Пробуем взять body
+                        const body = doc.body;
+                        if (body) {
+                            // Убираем header
+                            const header = body.querySelector('header');
+                            if (header) header.remove();
+                            contentHTML = body.innerHTML;
+                        }
+                    }
+
+                    if (!contentHTML || contentHTML.trim().length < 10) {
+                        throw new Error('Не удалось найти содержимое лекции');
+                    }
+
+                    // Показываем контент
+                    pageElement.innerHTML = `
+                        <div style="max-width: 800px; margin: 0 auto; padding: 0 15px;">
+                            <div class="lection-header" style="text-align: center; margin: 20px 0;">
+                                <h1 style="font-size: 1.8rem;">${title}</h1>
+                            </div>
+                            <div class="lection-content" style="background: rgba(154,255,247,0.05); border-radius: 16px; padding: 30px; line-height: 1.8; font-size: 1.1rem;">
+                                ${contentHTML}
+                            </div>
+                        </div>
+                    `;
+
+                    // Загружаем MathJax
+                    loadMathJax();
+                })
+                .catch(error => {
+                    console.error('Ошибка:', error);
+                    pageElement.innerHTML = `
+                        <div style="text-align: center; padding: 20px;">
+                            <p style="color: #ff6b6b;">❌ Ошибка загрузки: ${error.message}</p>
+                            <p style="color: #aaa; margin-top: 10px; font-size: 0.9rem;">Попробуйте обновить страницу</p>
+                        </div>
+                    `;
+                });
+        });
+
+        function loadMathJax() {
+            const oldScripts = document.querySelectorAll('script[src*="mathjax"], script[src*="MathJax"]');
+            oldScripts.forEach(script => script.remove());
+            
+            const oldConfigs = document.querySelectorAll('script[type="text/x-mathjax-config"]');
+            oldConfigs.forEach(config => config.remove());
+
+            if (window.MathJax) {
+                delete window.MathJax;
+            }
+
+            const config = document.createElement('script');
+            config.type = 'text/x-mathjax-config';
+            config.text = `
+                MathJax.Hub.Config({
+                    tex2jax: {
+                        inlineMath: [['$','$'], ['\\\\(','\\\\)']],
+                        displayMath: [['$$','$$'], ['\\\\[','\\\\]']],
+                        processEscapes: true
+                    },
+                    "SVG": {
+                        linebreaks: { automatic: true, width: "container" }
+                    },
+                    displayAlign: "center",
+                    messageStyle: "none"
+                });
+            `;
+            document.head.appendChild(config);
+
+            const script = document.createElement('script');
+            script.src = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+            script.async = true;
+            script.onload = function() {
+                if (window.MathJax) {
+                    setTimeout(function() {
+                        MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+                    }, 100);
+                }
+            };
+            document.head.appendChild(script);
+        }
+    </script>
+</body>
+</html>
