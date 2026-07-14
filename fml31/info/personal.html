@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <title>SOMEL | Уголок ФМЛ №31 — Информация</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #121212;
+            color: #E0E0E0;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            font-family: 'Georgia', serif;
+            color: #FFD700;
+            text-align: center;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #333333;
+        }
+        ol {
+            list-style-type: none;
+            padding: 0;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        li {
+            background-color: #1E1E1E;
+            margin-bottom: 15px;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            line-height: 1.6;
+            position: relative;
+            padding-left: 50px;
+        }
+        li:before {
+            content: counter(li-counter);
+            counter-increment: li-counter;
+            background-color: #007BFF;
+            color: white;
+            font-weight: bold;
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 30px;
+            height: 30px;
+            line-height: 30px;
+            text-align: center;
+            border-radius: 50%;
+        }
+        ol {
+            counter-reset: li-counter;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Как создать свой VPN?</h1>
+    <p>Можете написать мне в <a target="_blank" href="https://t.me/XDDCCdc" style="text-decoration: none; color:#FFD700;">telegram</a>, и я помогу Вам.</p>
+
+    <ol>
+        <li>
+            Мы будем делать сеть под <a href="https://www.happ.su/main/ru" target="_blank" style="text-decoration: none; color:#FFD700;">Happ</a>. Для владельцев IOS можно использовать V2Box.
+        </li>
+        <li>Зарегистрируйтесь на <a target="_blank" href="https://dashboard.render.com/login" style="text-decoration: none; color:#FFD700;">https://dashboard.render.com/login</a> любым способом</li>
+        <li>
+            В Dashboard создайте новый Web Service<br>
+            <img src="webserver.jpg"  width="40%">
+        </li>
+        <li>
+            Выберите Public Git Repository, вставьте ссылку: https://github.com/AssA7778/REN<br>
+            <img src="pubgit.jpg" width="100%"><br>
+            Нажмите Connect
+        </li>
+        <li>
+            В появившейся странице выберите нужный регион<br>
+            <img src="region.jpg" width="100%">
+        </li>
+        <li>
+            Выберите Free тариф<br>
+            <img src="free.jpg" width="100%">
+        </li>
+        <li>
+            Если надо задать пароль администратора, в Enviroment Variables будет строка. В поле NAME_OF_VARIABLE пишем ADMIN_PASSWORD. В поле справа от этого пишем придуманный пароль.<br>
+            <img src="admin.jpg" width="100%">
+        </li>
+        <li>
+            Нажмите Deploy New Service
+        </li>
+        <li>
+            В панели управления будет ссылка на сервис. Копируем её в браузер 
+            <img src="panel.jpg" width="100%">
+        </li>
+        <li>
+            Дописываем /dashboard
+            <img src="link.jpg" width="100%">
+
+            Потом надо будет вписать пароль администратора (или просто admin, если егоо не меняли)
+        </li>
+        <li>
+            В дешборде открываем вкладку Inbounds, нажимаем + Add
+            <img src="inbounds.jpg" width="100%">
+        </li>
+        <li>
+            В окне вписываем имя сети и TRAFFIC LIMIT 100 (это лимит сервера, и мы даём ему понять этот лимит)
+            <img src="add.jpg" width="100%">
+        </li>
+        <li>
+            В появившейся строке справа нажимаем S
+            <img src="s.jpg" width="100%">
+        </li>
+        <li>
+            Теперь нужно открыть Happ, в меню нажимаем Add URL
+            <img src="happ1.jpg" width="100%">
+        </li>
+        <li>
+            В Subscription Name пишем имя сети (любое удобное) и в Subscription URL вставляем ссылку, которая скопировалась в пункте 13.
+            <img src="happ2.jpg" width="100%">
+        </li>
+        <li>
+            Пользуемся.
+            <img src="happ3.jpg" width="100%">
+            По поводу интерфейса, средняя из трёх кнопок - это пинг. Её можно нажимать, чтобы узнать работу сервера (если напротив нужной строки стоит n/a - сервер недоступен.)
+        </li>
+    </ol>
+</body>
+</html>
