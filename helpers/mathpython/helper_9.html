@@ -9,9 +9,23 @@
 <body bgcolor="black">
 
 <div class="infoblock">
+    <a name="start"></a>
+    <h3 style="text-align: center;">Вступление</h3>
+
+    Базовые встроенные функции:
+    <pre><code class="language-python">
+print(arg1, "Hello, world!", sep=",", end="\n") #Сначала перечисляем основные аргументы
+#После можно дописать дополнительные аргументы - sep (от separator - разделитель)
+#И end - символ в конце вывода
+
+input() #приостанавливает поток программы, ожидая ввода строки в консоль
+int() #Преобразовывает строку в число. Если строка содержала буквы, выдаст ошибку
+    </code></pre>
+</div>
+
+<div class="infoblock">
     <a name="degree"></a>
     <h3 style="text-align: center;">Возведение числа в степень</h3>
-    <!-- Добавлено пояснение -->
     <p>Функция последовательно умножает число <code>x</code> само на себя <code>|y|</code> раз. Для отрицательной степени берётся обратное значение.</p>
     <pre><code class="language-python">
 def degree(x, y):
