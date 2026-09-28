@@ -11,219 +11,192 @@
     font-style: normal;
 }
 
-/* === БАЗОВЫЙ STYLING === */
 body {
     background: linear-gradient(135deg, #0e0e0e, #1a1a1a, #000000);
     font-family: 'Menlo', sans-serif;
     color: #fff;
     margin: 0;
-    padding: 20px;
+    padding: 8px;
+    font-size: 0.92rem;
 }
 
-/* GLASS BLOCK — ЦВЕТНОЙ */
 .infoblock, .infoblock2 {
-    width: 90%;
-    padding: 2%;
-    border-radius: 20px;
-    margin-bottom: 20px;
-    font-size: 1.2rem;
+    width: 94%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    margin-bottom: 10px;
+    font-size: 0.92rem;
     font-family: 'Menlo', sans-serif;
-
-    background: rgba(165, 255, 255, 0.25);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-
-    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
-
+    background: rgba(165, 255, 255, 0.18);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
     color: #bfb3d1;
-    transition: all 0.5s ease;
+    transition: all 0.4s ease;
 }
 
-/* Плавная смена цвета при hover */
 .infoblock:hover, .infoblock2:hover {
-    width: 90%;
-    padding-left: 5%;
-    padding-right: 5%;
-    border-radius: 30px;
-    background: rgba(255, 200, 255, 0.25);
-    box-shadow: 0 12px 45px rgba(0,0,0,0.45);
+    background: rgba(255, 200, 255, 0.2);
+    box-shadow: 0 6px 28px rgba(0,0,0,0.4);
 }
 
-/* GLASS BUTTON */
 .toggle-button {
     display: inline-block;
-    background: rgba(120, 255, 120, 0.25); /* зеленое стекло по умолчанию */
+    background: rgba(120, 255, 120, 0.25);
     border: 1px solid rgba(255, 255, 255, 0.3);
-    border-radius: 20px;
-    padding: 10px 25px;
+    border-radius: 16px;
+    padding: 6px 16px;
     cursor: pointer;
     font-family: 'Gothic', sans-serif;
     font-weight: bold;
     color: #0d0120;
-    font-size: 1rem;
+    font-size: 0.85rem;
     backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
-    transition: all 0.4s ease, background 0.6s ease;
+    box-shadow: 0 3px 14px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
 .toggle-button.red {
-    background: rgba(255, 120, 120, 0.35); /* красное стекло */
+    background: rgba(255, 120, 120, 0.35);
 }
 
-/* hover эффект */
 .toggle-button:hover {
-    transform: scale(1.05);
-    box-shadow: 0 6px 26px rgba(0,0,0,0.35);
+    transform: scale(1.04);
+    box-shadow: 0 4px 18px rgba(0,0,0,0.3);
 }
 
-/* INPUT */
 .expression-input {
     width: 70%;
-    height: 40px;
-    border-radius: 15px;
+    height: 32px;
+    border-radius: 12px;
     border: 1px solid rgba(255,255,255,0.3);
-    padding: 0 15px;
-    font-size: 1rem;
-    margin-top: 10px;
+    padding: 0 12px;
+    font-size: 0.9rem;
+    margin-top: 4px;
     backdrop-filter: blur(8px);
-    background: rgba(255,255,255,0.15);
+    background: rgba(255,255,255,0.12);
     color: #0d0120;
-    transition: all 0.4s ease;
+    transition: all 0.3s ease;
 }
 
 .expression-input:focus {
     outline: none;
-    background: rgba(255,255,255,0.25);
-    box-shadow: 0 4px 15px rgba(255,255,255,0.3);
+    background: rgba(255,255,255,0.2);
+    box-shadow: 0 3px 12px rgba(255,255,255,0.2);
 }
 
-
-/* TABLES */
 .info_table {
     border-collapse: separate;
     border-spacing: 0;
-    border-radius: 20px;
+    border-radius: 14px;
     overflow: hidden;
-
-    background: rgba(165, 255, 255, 0.25);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255,255,255,0.35);
-    box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+    background: rgba(165, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.3);
+    box-shadow: 0 3px 14px rgba(0,0,0,0.2);
 }
 
 .info_table th,
 .info_table td {
-    padding: 10px 20px;
-    border: 1px solid rgba(255,255,255,0.25);
+    padding: 6px 14px;
+    border: 1px solid rgba(255,255,255,0.2);
     color: #0d0120;
     text-align: center;
     transition: background 0.3s ease;
+    font-size: 0.85rem;
 }
 
 .info_table td:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.12);
 }
 
-/* LOGIC TABLE CELLS */
 .tabl {
-    margin: 30px;
-    background: rgba(165, 255, 255, 0.2);
+    margin: 16px;
+    background: rgba(165, 255, 255, 0.15);
     color: #0d0120;
-
     border-collapse: collapse;
-    border-spacing: 0;
-    border-radius: 10px;
-
-    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
     overflow: hidden;
-
-    backdrop-filter: blur(8px);
+    backdrop-filter: blur(6px);
+    font-size: 0.85rem;
 }
 
 .item {
     text-align: center;
-    transition: background-color 0.6s ease;
-    border: 1px solid rgba(255,255,255,0.2);
+    transition: background-color 0.5s ease;
+    border: 1px solid rgba(255,255,255,0.15);
 }
 
-.correct { background-color: rgba(162, 255, 170, 0.5); }
-.incorrect { background-color: rgba(255, 162, 162, 0.5); }
-.exp { background-color: rgba(162, 202, 255, 0.5); }
+.correct { background-color: rgba(162, 255, 170, 0.4); }
+.incorrect { background-color: rgba(255, 162, 162, 0.4); }
+.exp { background-color: rgba(162, 202, 255, 0.4); }
 
 a.link {
-    color: chocolate; 
-    background-color: cadetblue; 
-    border-radius: 20px; 
+    color: chocolate;
+    background-color: cadetblue;
+    border-radius: 16px;
     text-decoration: none;
-    padding: 10px;
+    padding: 6px 12px;
     border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 4px 15px rgba(44, 44, 44, 0.3);
+    box-shadow: 0 3px 12px rgba(44,44,44,0.25);
+    font-size: 0.85rem;
 }
 
 h3 {
     display: inline-block;
     text-align: center;
-    padding: 5px 15px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 4px 15px rgba(44, 44, 44, 0.3);
-    background: #8b8b8b46;
-    transition: all 0.4s ease;
+    padding: 3px 12px;
+    border-radius: 16px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 3px 12px rgba(44,44,44,0.2);
+    background: rgba(139,139,139,0.2);
+    transition: all 0.3s ease;
     font-family: EducationalGothic, sans-serif;
+    font-size: 1rem;
+    margin: 4px 0;
 }
 h3:hover {
-    background: #b5b5b546;
-    box-shadow: 0 5px 20px rgba(44, 44, 44, 0.3);
+    background: rgba(181,181,181,0.2);
+    box-shadow: 0 4px 16px rgba(44,44,44,0.25);
 }
 
-
-@media (max-width: 768px) { 
+@media (max-width: 768px) {
     .infoblock, .infoblock2 {
-        width:90%;
-        padding-left: 5%;
-        padding-right: 5%;
+        width: 92%;
+        padding: 6px 10px;
     }
 }
 
 .formulas_space {
-    padding: 25px 40px;
-    border-radius: 20px;
-    border: 1px solid rgba(255,255,255,0.3);
-    box-shadow: 0 4px 15px rgba(44, 44, 44, 0.3);
-    background: #8b8b8b1a;
-    transition: all 0.4s ease;
+    padding: 12px 20px;
+    border-radius: 14px;
+    border: 1px solid rgba(255,255,255,0.2);
+    box-shadow: 0 3px 12px rgba(44,44,44,0.2);
+    background: rgba(139,139,139,0.08);
+    transition: all 0.3s ease;
+    font-size: 0.85rem;
 }
 
 .formulas_space li {
-    margin: 10px 0;
-    padding: 5px 15px;
-    background-color: #f8f9fa13;
-    border-radius: 4px;
+    margin: 4px 0;
+    padding: 3px 10px;
+    background-color: rgba(248,249,250,0.06);
+    border-radius: 3px;
     font-family: 'Courier New', monospace;
-    font-size: 1em;
-    border: 1px solid #e9ecef3f;
+    font-size: 0.85rem;
+    border: 1px solid rgba(233,236,239,0.2);
 }
 
 .formulas_space li strong {
-    display: inline;
     color: #2980b9;
-    margin: 0;
-    padding: 0;
-    border: none;
-    font-size: 0.95em;
-    margin-right: 8px;
-}
-
-.formulas_space li {
-    font-size: 1.05em;
-    letter-spacing: 0.5px;
+    margin-right: 6px;
 }
 
 .formulas_space:nth-child(odd) {
     border-left-color: #3498db;
 }
-
 .formulas_space:nth-child(even) {
     border-left-color: #2ecc71;
 }

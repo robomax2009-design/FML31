@@ -1,109 +1,148 @@
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    background-color: rgba(48, 39, 39, 0);
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
-}
-
-h1 {
-    text-align: center;
-    color: #2c3e50;
-    margin-bottom: 40px;
-    border-bottom: 2px solid #3498db;
-    padding-bottom: 15px;
+    padding: 8px 12px;
 }
 
 h2 {
     color: #2980b9;
-    margin-top: 40px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #eee;
+    font-size: 1.2rem;
+    margin: 8px 0 6px 0;
+    padding-bottom: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
 }
 
 h3 {
-    color: #34495e;
-    margin-top: 25px;
+    color: #c0b8d4;
+    font-size: 0.95rem;
+    margin: 4px 0 6px 0;
 }
 
 .section {
-    margin-bottom: 30px;
-    padding: 20px;
-    border-radius: 8px;
-    background-color: #16161609;
+    margin-bottom: 10px;
+    padding: 8px 12px;
+    border-radius: 6px;
+    background-color: rgba(22,22,22,0.06);
     overflow-x: auto;
-    border: solid 1px white;
+    border: 1px solid rgba(255,255,255,0.12);
 }
 
 .formula-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 25px;
-    margin-top: 20px;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 10px;
+    margin-top: 6px;
 }
 
 .formula-card {
-    padding: 20px;
-    background-color: rgba(255, 255, 255, 0.055);
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.027);
-    border-left: 4px solid #ffffff52;
-}
-
-.formula-group {
-    margin-bottom: 20px;
+    padding: 8px 12px;
+    background-color: rgba(255, 255, 255, 0.04);
+    border-radius: 6px;
+    border-left: 3px solid rgba(255,255,255,0.25);
 }
 
 .formula {
-    font-size: 1.1em;
-    padding: 15px;
+    font-size: 0.95rem;
+    padding: 6px 10px;
     text-align: center;
-    background-color: #00000059;
-    border-radius: 5px;
-    margin: 10px 0;
+    background-color: rgba(0,0,0,0.35);
+    border-radius: 4px;
+    margin: 4px 0;
     overflow-x: auto;
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
-    margin: 20px 0;
+    margin: 6px 0;
+    font-size: 0.9rem;
 }
 
 th {
-    background-color: #ffffff41;
-    color: rgb(0, 0, 0);
-    padding: 12px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+    padding: 4px 8px;
     text-align: left;
+    font-weight: 600;
 }
 
 td {
-    padding: 12px;
-    border-bottom: 1px solid #ffffff;
+    padding: 4px 8px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
 }
 
 tr:nth-child(even) {
-    background-color: #00214217;
-}
-
-.highlight {
-    background-color: #e8f4fc;
-    padding: 3px 6px;
-    border-radius: 3px;
-    font-weight: bold;
+    background-color: rgba(0,33,66,0.12);
 }
 
 @media (max-width: 768px) {
     .formula-grid {
         grid-template-columns: 1fr;
     }
-    
     .container {
-        padding: 15px;
+        padding: 4px 6px;
     }
-    
     .section {
-        padding: 15px;
+        padding: 6px 8px;
+    }
+}
+/* ====== НАВИГАЦИЯ (ВЕРТИКАЛЬНЫЙ СПИСОК) ====== */
+.nav-list {
+    padding: 2px 0;
+}
+
+.nav-list .nav-title {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #c0b8d4;
+    margin-bottom: 8px;
+    padding-left: 2px;
+}
+
+.nav-list ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.nav-list ul li {
+    display: block;
+    width: 100%;
+}
+
+.nav-link {
+    display: block;
+    width: 100%;
+    color: #a8d8ea;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 10px 16px;
+    border-radius: 14px;
+    border: 1px solid rgba(168, 216, 234, 0.25);
+    transition: all 0.3s ease;
+    background: rgba(168, 216, 234, 0.06);
+    text-align: center;
+    font-weight: 500;
+    box-sizing: border-box;
+}
+
+.nav-link:hover {
+    background: rgba(168, 216, 234, 0.18);
+    border-color: rgba(168, 216, 234, 0.55);
+    transform: scale(1.02);
+    box-shadow: 0 4px 16px rgba(168, 216, 234, 0.15);
+}
+
+@media (max-width: 480px) {
+    .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+    .nav-list .nav-title {
+        font-size: 1rem;
     }
 }
