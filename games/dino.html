@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dino.css">
+    <title>Somel dino</title>
+</head>
+<body>
+    <div id="dino" class="dino"></div>
+    <div id="leg1" class="dino" style="z-index:9998;"></div>
+    <div id="leg2" class="dino" style="z-index:9998;"></div>
+    <div id="head" class="dino" style="z-index:10000;">
+        <div class="eye left"></div>
+        <div class="eye right"></div>
+        <div class="mouth"></div>
+    </div>
+
+    <div id="cactus1" style="position: fixed; display:none; width: 28px;">
+        <div class="cactus" style="z-index:9998; left: 0px; width: 10px; height:40px; top:0px;"></div>
+        <div class="cactus" style="z-index:9998; left: 14px; width: 10px; height:20px; top:20px;"></div>
+    </div>
+
+    <div id="cactus2" style="position: fixed; display:none; width: 41px;">
+        <div class="cactus" style="z-index:9998; left: 0px; width: 10px; height:40px; top:0px;"></div>
+        <div class="cactus" style="z-index:9998; left: 14px; width: 10px; height:20px; top:20px;"></div>
+        <div class="cactus" style="z-index:9998; left: 27px; width: 10px; height:30px; top:10px;"></div>
+    </div>
+
+    <div id="cactus3" style="position: fixed; display:none; width: 50px;">
+        <div class="cactus" style="z-index:9998; left: 0px; width: 10px; height:40px; top:0px;"></div>
+        <div class="cactus" style="z-index:9998; left: 13px; width: 10px; height:30px; top:10px;"></div>
+        <div class="cactus" style="z-index:9998; left: 28px; width: 10px; height:20px; top:20px;"></div>
+        <div class="cactus" style="z-index:9998; left: 36px; width: 10px; height:40px; top:0px;"></div>
+    </div>
+    
+    <div id="ground" class="ground"></div>
+
+    <div id="menu" style="background-color: rgba(116, 209, 22, 0.548);
+    position: fixed;
+    width: 60%;
+    height: 60%;
+    top:20%;
+    left:20%;
+    box-shadow: 0 8px 50px rgba(116, 209, 22, 0.548);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 30px;
+    backdrop-filter: blur(6px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    transition: 1s;">
+        <h1 style="font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        color:coral;
+        text-align: center;
+        margin: 0 0 20px 0;">Somel Dino</h1>
+
+        <button onclick="play()" id="btnStart" class="but">▶ Играть</button>
+        <button onclick="restart()" id="btnRestart" class="but">⟲ Заново</button>
+
+        <p style="font-family:'Trebuchet MS', sans-serif; color:#fff; opacity:.8; margin-top:10px; font-size: 14px;">
+            Управление: W — прыжок, D — вправо, A — влево, Esc - пауза
+        </p>
+    </div>
+
+
+    <h1 id="gameover" style="position: fixed;
+    top:10%;
+    width: 100%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color:rgb(255, 80, 80, 0);
+    text-align: center;
+    margin: 0 0 20px 0;
+    transition: 0.2s;">Game over</h1>
+
+    <script src="dino.js"></script>
+</body>
+</html>

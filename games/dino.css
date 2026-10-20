@@ -1,0 +1,104 @@
+body{
+    background-color: rgb(0, 0, 0);
+}
+
+.dino{
+    position: fixed;
+    top: 50px;
+    left: 100px;
+    width: 200px;
+    height: 100px;
+    background-color: rgba(91, 161, 0, 0.815);
+    z-index: 9999;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0px 50px rgba(91, 161, 0, 0.815);
+}
+
+.dino {
+    position: fixed;
+    background-color: rgba(91, 161, 0, 0.815);
+    z-index: 9999;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0px 50px rgba(91, 161, 0, 0.815);
+}
+
+.dino .eye {
+    position: absolute;
+    width: 20%;
+    height: 20%;
+    background: #000;
+    border-radius: 50%;
+    top: 20%;
+}
+
+.dino .eye.left  { left: 30%; }
+.dino .eye.right { right: 10%; }
+
+.dino .mouth {
+    position: absolute;
+    bottom: 20%;
+    left: 60%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 15%;
+    background: #000;
+    border-radius: 2px;
+}
+
+.ground{
+    position: fixed;
+    width: 200%;
+    height: 100%;
+    background-color: rgba(255, 226, 61, 0.534);
+    z-index: 999;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 50px rgba(255, 226, 61, 0.534);
+}
+
+.cactus {
+    position: absolute;
+    background-color: rgba(0, 161, 86, 0.815);
+    z-index: 9999;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0px 50px rgba(0, 161, 86, 0.815);
+}
+
+.but {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+    padding: 14px 40px;
+    min-width: 220px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    background: linear-gradient(135deg, rgba(91, 161, 0, 0.9), rgba(0, 161, 86, 0.9));
+    box-shadow: 0 6px 20px rgba(91, 161, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+    letter-spacing: 1px;
+}
+
+.but:hover {
+    transform: translateY(-3px) scale(1.03);
+    background: linear-gradient(135deg, rgba(116, 209, 22, 1), rgba(0, 200, 110, 1));
+    box-shadow: 0 10px 30px rgba(116, 209, 22, 0.8),
+                inset 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.but:active {
+    transform: translateY(1px) scale(0.98);
+    box-shadow: 0 3px 10px rgba(91, 161, 0, 0.6),
+                inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+.but:disabled {
+    opacity: 0.45;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}

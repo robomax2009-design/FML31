@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" href="../../fml31/files/icon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="helper.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Python Turtle</title>
+</head>
+<body>
+
+<div class="infoblock">
+    <h3>Python Turtle</h3>
+    <h3><a href="choose/index.html" style="color: white; text-decoration: none;">Вернуться к выбору</a></h3>
+</div>
+
+<a name="intro"></a>
+
+<div class="infoblock2">
+    <p><h3>Инструкция по установке Python</h3></p>
+
+    <ul>
+        <li>Скачиваем Python с официального сайта:</li>
+        <p><a class="link" href="https://www.python.org/ftp/python/pymanager/python-manager-26.3.msix" target="_blank">На Windows</a></p>
+        <p><a class="link" href="https://www.python.org/ftp/python/3.13.15/python-3.13.15-macos11.pkg" target="_blank">На MacOS</a></p>
+        <li>Скачиваем VSCode с официального сайта:</li>
+        <p><a class="link" href="https://code.visualstudio.com/download?_exp_download=d53503e735" target="_blank">Выберите ОС на сайте</a></p>
+        <p><a class="link" href="https://www.youtube.com/watch?v=YBosK-_KF6c" target="_blank">Ютуб гайд</a></p>
+    </ul>
+
+  <h3>Простейшие команды. Линейный алгоритм</h3>
+  <ul>
+    <li><code>from turtle import *</code> — подключаем все команды черепашки.</li>
+    <li><code>fd(100)</code> — forward, вперёд на 100 пикселей.</li>
+    <li><code>bk(50)</code> — backward, назад на 50 пикселей.</li>
+    <li><code>rt(90)</code> — right, поворот направо на 90°.</li>
+    <li><code>lt(45)</code> — left, поворот налево на 45°.</li>
+    <li><code>pu()</code> — penup, поднять перо (не рисует).</li>
+    <li><code>pd()</code> — pendown, опустить перо (рисует).</li>
+    <li><code>color("red")</code> — цвет пера.</li>
+    <li><code>width(3)</code> — толщина линии.</li>
+    <li><code>speed(5)</code> — скорость рисования (0–10).</li>
+    <li><code>goto(x, y)</code> — переместиться в точку (x, y).</li>
+    <li><code>circle(50)</code> — нарисовать окружность радиусом 50.</li>
+    <li><code>done()</code> — окно не закрывается сразу.</li>
+  </ul>
+
+  <p>Линейный алгоритм — команды выполняются по порядку, одна за другой.</p>
+  <ul>Пример: квадрат
+    <li><pre><code class="language-python">from turtle import *
+
+fd(100)
+rt(90)
+fd(100)
+rt(90)
+fd(100)
+rt(90)
+fd(100)
+
+done()</code></pre></li>
+  </ul>
+</div>
+<a name="cycle"></a>
+
+<div class="infoblock2">
+  <h3>Циклический алгоритм</h3>
+  <p>Цикл повторяет одни и те же команды несколько раз.</p>
+  <ul>
+    <li><code>for i in range(n):</code> — повторить n раз.</li>
+    <li><code>range(5)</code> — числа 0, 1, 2, 3, 4.</li>
+    <li><code>range(1, 6)</code> — числа 1, 2, 3, 4, 5.</li>
+    <li><code>range(0, 10, 2)</code> — 0, 2, 4, 6, 8.</li>
+  </ul>
+
+  <p>Пример: квадрат через цикл</p>
+  <pre><code class="language-python">from turtle import *
+
+for i in range(4):
+    fd(100)
+    rt(90)
+
+done()</code></pre>
+
+  <p>Пример: пятиконечная звезда</p>
+  <pre><code class="language-python">from turtle import *
+
+for i in range(5):
+    fd(150)
+    rt(144)
+
+done()</code></pre>
+
+  <p>Пример: n-угольник</p>
+  <pre><code class="language-python">from turtle import *
+
+n = 8
+for i in range(n):
+    fd(80)
+    rt(360 / n)
+
+done()</code></pre>
+</div>
+<a name="func"></a>
+
+<div class="infoblock2">
+  <h3>Подпрограммы</h3>
+  <p>Подпрограмма (функция) — это блок команд, у которого есть имя. Её можно вызывать много раз.</p>
+  <ul>
+    <li><code>def имя():</code> — объявление функции.</li>
+    <li>Тело функции пишется с отступом.</li>
+    <li>Вызов функции: <code>имя()</code>.</li>
+  </ul>
+
+  <p>Пример: функция рисует квадрат</p>
+  <pre><code class="language-python">from turtle import *
+
+def square():
+    for i in range(4):
+        fd(100)
+        rt(90)
+
+square()
+pu()
+goto(150, 0)
+pd()
+square()
+
+done()</code></pre>
+
+  <p>Пример: функция рисует домик</p>
+  <pre><code class="language-python">from turtle import *
+
+def house():
+    for i in range(4):
+        fd(100)
+        rt(90)
+    rt(45)
+    fd(70)
+    rt(90)
+    fd(70)
+
+house()
+
+done()</code></pre>
+</div>
+<a name="func_arg"></a>
+
+<div class="infoblock2">
+  <h3>Подпрограммы с параметрами</h3>
+  <p>Параметры позволяют передавать в функцию разные значения: длину, угол, цвет, количество повторений.</p>
+  <ul>
+    <li><code>def square(size):</code> — функция с одним параметром.</li>
+    <li><code>def polygon(size, n):</code> — функция с двумя параметрами.</li>
+    <li>Внутри функции параметры используются как обычные переменные.</li>
+  </ul>
+
+  <p>Пример: квадраты разного размера</p>
+  <pre><code class="language-python">from turtle import *
+
+def square(size):
+    for i in range(4):
+        fd(size)
+        rt(90)
+
+square(50)
+pu()
+goto(100, 0)
+pd()
+square(100)
+pu()
+goto(250, 0)
+pd()
+square(150)
+
+done()</code></pre>
+
+  <p>Пример: правильный многоугольник</p>
+  <pre><code class="language-python">from turtle import *
+
+def polygon(size, n):
+    for i in range(n):
+        fd(size)
+        rt(360 / n)
+
+polygon(80, 3)
+pu()
+goto(150, 0)
+pd()
+polygon(80, 5)
+pu()
+goto(320, 0)
+pd()
+polygon(80, 6)
+
+done()</code></pre>
+
+  <p>Пример: разноцветные круги</p>
+  <pre><code class="language-python">from turtle import *
+
+def circle_at(color_name, radius, x, y):
+    pu()
+    goto(x, y)
+    pd()
+    color(color_name)
+    circle(radius)
+
+circle_at("red", 40, 0, 0)
+circle_at("green", 60, 120, 0)
+circle_at("blue", 80, 260, 0)
+
+done()</code></pre>
+</div>
+<a name="if"></a>
+
+<div class="infoblock2">
+  <h3>Условный оператор</h3>
+  <p>Условный оператор помогает программе выбирать, что делать, в зависимости от условия.</p>
+  <ul>
+    <li><code>if условие:</code> — если условие истинно.</li>
+    <li><code>else:</code> — иначе.</li>
+    <li><code>elif условие:</code> — ещё одно условие.</li>
+    <li>Сравнения: <code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>.</li>
+    <li>Логические связки: <code>and</code>, <code>or</code>, <code>not</code>.</li>
+  </ul>
+
+  <p>Пример: черепашка идёт вправо или влево</p>
+  <pre><code class="language-python">from turtle import *
+
+direction = input("Куда идти? (вправо/влево): ")
+
+if direction == "вправо":
+    fd(100)
+else:
+    bk(100)
+
+done()</code></pre>
+
+  <p>Пример: разный цвет в зависимости от числа</p>
+  <pre><code class="language-python">from turtle import *
+
+n = int(input("Введите число: "))
+
+if n > 0:
+    color("green")
+elif n < 0:
+    color("red")
+else:
+    color("blue")
+
+fd(100)
+done()</code></pre>
+
+  <p>Пример: рисуем круг, если радиус положительный</p>
+  <pre><code class="language-python">from turtle import *
+
+r = int(input("Введите радиус: "))
+
+if r > 0:
+    circle(r)
+else:
+    print("Радиус должен быть больше нуля")
+
+done()</code></pre>
+
+  <p>Пример: выбор фигуры</p>
+  <pre><code class="language-python">from turtle import *
+
+figure = input("Фигура (квадрат/круг): ")
+
+if figure == "квадрат":
+    for i in range(4):
+        fd(100)
+        rt(90)
+else:
+    circle(60)
+
+done()</code></pre>
+</div>
+
+<script src="../logtable/helper.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/atom-one-dark.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+<script>hljs.highlightAll();</script>
+</body>
+</html>
