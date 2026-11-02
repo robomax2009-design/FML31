@@ -1,0 +1,377 @@
+/* LG webOS compatibility layout.
+   Uses the same predictable flexbox positioning pattern as FML31 .cardholder/.card_full.
+   Loaded after style.css so the original design and content stay intact. */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+* { box-sizing: border-box; }
+
+.scene {
+  width: 100%;
+  height: 100vh;
+  min-height: 100%;
+  overflow: hidden;
+}
+
+/* Avoid viewport-based transforms/advanced layout in the main content. */
+.layout {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  padding: 38px 4.5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.top {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  width: 100%;
+  min-width: 0;
+}
+
+.brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 18px;
+  min-width: 0;
+}
+
+.logo {
+  display: block;
+  flex: 0 0 76px;
+  width: 76px;
+  height: 76px;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 18px;
+  animation: none;
+}
+
+.wordmark {
+  font-size: 50px;
+  line-height: 1.05;
+  letter-spacing: 3px;
+  white-space: nowrap;
+}
+
+.submark {
+  margin-top: 7px;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.live {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px 16px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  white-space: nowrap;
+}
+
+.live-stats strong { font-size: 25px; }
+.live-dot { animation: none; }
+
+.main {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 4%;
+  width: 100%;
+  min-width: 0;
+  min-height: 0;
+}
+
+.hero {
+  position: relative;
+  display: block;
+  flex: 0 0 53%;
+  width: 53%;
+  max-width: 53%;
+  padding: 0 0 0 1%;
+  min-width: 0;
+}
+
+.eyebrow {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 24px;
+  font-size: 16px;
+  line-height: 1.35;
+  letter-spacing: 3px;
+}
+
+.eyebrow:before { flex: 0 0 42px; }
+
+h1 {
+  margin: 0;
+  max-width: 100%;
+  font-size: 76px;
+  line-height: 0.98;
+  letter-spacing: -2px;
+  font-weight: 800;
+}
+
+h1 .outline { display: block; }
+
+.lead {
+  max-width: 650px;
+  margin: 24px 0 0;
+  font-size: 23px;
+  line-height: 1.45;
+}
+
+.features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 26px;
+}
+
+.feature {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  gap: 9px;
+  padding: 10px 13px;
+  font-size: 14px;
+  line-height: 1.2;
+  animation: none;
+}
+
+/* Cards use flex-wrap/explicit sizing, like the working FML31 cardholder. */
+.qrs {
+  display: flex;
+  flex: 0 0 43%;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 14px;
+  width: 43%;
+  max-width: none;
+  min-width: 0;
+}
+
+.qr-card {
+  position: relative;
+  display: flex;
+  flex: 1 1 0;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  width: 0;
+  min-width: 0;
+  padding: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  animation: none;
+}
+
+.qr-card:before,
+.qr-card:after { display: none; }
+
+.qr-top {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin: 0 0 12px;
+}
+
+.qr-number {
+  font-size: 11px;
+  line-height: 1.25;
+  letter-spacing: 1px;
+}
+
+.qr-icon {
+  display: flex;
+  flex: 0 0 26px;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+}
+
+.qr-image-wrap {
+  position: relative;
+  display: block;
+  flex: 0 0 auto;
+  width: 100%;
+  height: auto;
+  max-width: 280px;
+  margin: 0 auto;
+  padding: 8px;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.qr-image-wrap img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.qr-title {
+  flex: 0 0 auto;
+  margin-top: 14px;
+  font-size: 23px;
+  line-height: 1.2;
+  font-weight: 700;
+}
+
+.qr-desc {
+  flex: 0 0 auto;
+  margin-top: 7px;
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.qr-link {
+  flex: 0 0 auto;
+  margin-top: 12px;
+  font-size: 11px;
+  line-height: 1.3;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.bottom {
+  display: flex;
+  flex: 0 0 auto;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  width: 100%;
+  padding-top: 12px;
+  font-size: 12px;
+  line-height: 1.3;
+  letter-spacing: 1px;
+}
+
+.scrollline { display: flex; flex-direction: row; align-items: center; gap: 10px; }
+.scrollline span { flex: 0 0 55px; }
+
+/* Keep background decoration cheap for integrated TV browsers. */
+.scene:before,
+.scene:after,
+.aurora,
+.orbit,
+.particle,
+.visit-pulse { animation: none !important; }
+.aurora { filter: none; opacity: 0.08; }
+.orbit { width: 850px; height: 850px; left: 30%; top: -300px; }
+.particles { display: none; }
+.visit-pulse { display: none; }
+
+/* Shorter 16:9 screens and older 720p sets. */
+@media screen and (max-width: 1600px) {
+  .layout { padding: 26px 4%; gap: 12px; }
+  .logo { flex-basis: 62px; width: 62px; height: 62px; }
+  .wordmark { font-size: 40px; }
+  .submark { font-size: 10px; letter-spacing: 1.5px; }
+  .live { padding: 9px 12px; font-size: 11px; gap: 7px; }
+  .live-stats strong { font-size: 21px; }
+  .main { gap: 3%; }
+  .hero { flex-basis: 52%; width: 52%; max-width: 52%; }
+  h1 { font-size: 58px; }
+  .eyebrow { font-size: 13px; margin-bottom: 17px; letter-spacing: 2px; }
+  .lead { margin-top: 18px; font-size: 18px; }
+  .features { margin-top: 18px; gap: 7px; }
+  .feature { padding: 8px 10px; font-size: 11px; }
+  .qrs { flex-basis: 45%; width: 45%; gap: 10px; }
+  .qr-card { padding: 12px; border-radius: 14px; }
+  .qr-number { font-size: 9px; letter-spacing: .6px; }
+  .qr-icon { display: none; }
+  .qr-title { margin-top: 10px; font-size: 17px; }
+  .qr-desc { font-size: 11px; }
+  .qr-link { margin-top: 8px; font-size: 9px; }
+  .bottom { font-size: 10px; padding-top: 8px; }
+}
+
+@media screen and (max-height: 800px) {
+  .layout { padding-top: 20px; padding-bottom: 20px; gap: 8px; }
+  .logo { flex-basis: 54px; width: 54px; height: 54px; }
+  .wordmark { font-size: 34px; }
+  .submark { margin-top: 4px; font-size: 9px; }
+  .hero { padding-left: 0; }
+  h1 { font-size: 52px; }
+  .eyebrow { margin-bottom: 12px; }
+  .lead { margin-top: 12px; font-size: 16px; }
+  .features { margin-top: 12px; }
+  .feature { padding: 6px 8px; }
+  .qr-card { padding: 10px; }
+  .qr-top { margin-bottom: 8px; }
+  .qr-title { margin-top: 8px; font-size: 16px; }
+  .qr-desc { margin-top: 4px; }
+  .qr-link { margin-top: 6px; }
+  .bottom { padding-top: 5px; }
+}
+
+/* At narrower viewports, stack the hero and cards instead of letting them overlap. */
+@media screen and (max-width: 1000px) {
+  html, body { overflow: auto; }
+  .scene { height: auto; min-height: 100vh; overflow: visible; }
+  .layout { height: auto; min-height: 100vh; padding: 22px 5%; }
+  .top { flex-wrap: wrap; }
+  .main { flex-direction: column; align-items: stretch; justify-content: flex-start; gap: 24px; }
+  .hero { flex: 0 0 auto; width: 100%; max-width: 100%; }
+  h1 { font-size: 54px; }
+  .qrs { flex: 0 0 auto; width: 100%; }
+  .qr-card { width: 50%; }
+  .qr-image-wrap { max-width: 260px; }
+  .bottom { margin-top: 12px; }
+}
+
+@media screen and (max-width: 620px) {
+  .layout { padding: 16px; }
+  .top { align-items: flex-start; }
+  .brand { gap: 10px; }
+  .logo { flex-basis: 46px; width: 46px; height: 46px; }
+  .wordmark { font-size: 28px; }
+  .submark { white-space: normal; font-size: 8px; letter-spacing: 1px; }
+  .live { display: none; }
+  h1 { font-size: 42px; }
+  .lead { font-size: 15px; }
+  .qrs { gap: 8px; }
+  .qr-card { padding: 8px; }
+  .qr-title { font-size: 14px; }
+  .qr-desc { font-size: 10px; }
+  .qr-link { display: none; }
+  .bottom { font-size: 9px; letter-spacing: .4px; }
+  .scrollline { display: none; }
+}
